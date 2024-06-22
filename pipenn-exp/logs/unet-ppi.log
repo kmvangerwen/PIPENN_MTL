@@ -1,0 +1,77 @@
+## Testing ./prepared_userds.csv at: 11-08-2023#13:32:36 ##
+## Testing ./prepared_userds.csv at: 11-08-2023#13:48:15 ##
+Shape featuresTable: (4, 5) | Shape labelvec: (4, 1)
+## Testing ./prepared_userds.csv at: 11-08-2023#13:54:33 ##
+Shape featuresTable: (4, 5) | Shape labelvec: (4, 1)
+## Testing ./prepared_userds.csv at: 11-08-2023#14:11:07 ##
+Shape featuresTable: (4, 2) | Shape labelvec: (4, 1)
+Shape inputData: (4, 1024, 1025)
+Shape labelData: (4, 1024, 1)
+Testing time: 0:00:00.961122
+## Testing ./prepared_userds.csv at: 17-08-2023#09:11:15 ##
+Shape featuresTable: (4, 2) | Shape labelvec: (4, 1)
+Shape inputData: (4, 1024, 1025)
+Shape labelData: (4, 1024, 1)
+Testing time: 0:00:00.663080
+## Testing ./prepared_userds.csv at: 17-08-2023#09:32:46 ##
+Shape featuresTable: (4, 2) | Shape labelvec: (4, 1)
+Shape inputData: (4, 1024, 1025)
+Shape labelData: (4, 1024, 1)
+Testing time: 0:00:00.655616
+## Testing ./prepared_userds.csv at: 17-08-2023#09:38:12 ##
+Shape featuresTable: (4, 2) | Shape labelvec: (4, 1)
+Shape inputData: (4, 1024, 1025)
+Shape labelData: (4, 1024, 1)
+Testing time: 0:00:00.651832
+## Testing ./prepared_userds.csv at: 17-08-2023#09:43:33 ##
+Shape featuresTable: (4, 2) | Shape labelvec: (4, 1)
+Shape inputData: (4, 1024, 1025)
+Shape labelData: (4, 1024, 1)
+Testing time: 0:00:00.662807
+## Testing ./prepared_userds.csv at: 17-08-2023#09:57:51 ##
+Shape featuresTable: (4, 2) | Shape labelvec: (4, 1)
+Shape inputData: (4, 1024, 1025)
+Shape labelData: (4, 1024, 1)
+Testing time: 0:00:00.660473
+## Testing ./prepared_userds.csv at: 17-08-2023#11:47:34 ##
+Shape featuresTable: (4, 2) | Shape labelvec: (4, 1)
+Shape inputData: (4, 1024, 1025)
+Shape labelData: (4, 1024, 1)
+Testing time: 0:00:00.657351
+## Testing ./prepared_userds.csv at: 17-08-2023#12:07:10 ##
+Shape featuresTable: (4, 2) | Shape labelvec: (4, 1)
+Shape inputData: (4, 1024, 1025)
+Shape labelData: (4, 1024, 1)
+Testing time: 0:00:00.650147
+## Testing ./prepared_userds.csv at: 18-08-2023#10:43:46 ##
+Shape featuresTable: (1149, 2) | Shape labelvec: (1149, 1)
+## Testing ./prepared_userds.csv at: 18-08-2023#10:45:34 ##
+Shape featuresTable: (1149, 2) | Shape labelvec: (1149, 1)
+## Testing ./prepared_userds.csv at: 18-08-2023#10:50:49 ##
+Shape featuresTable: (1149, 2) | Shape labelvec: (1149, 1)
+## Testing ./prepared_userds.csv at: 18-08-2023#11:00:35 ##
+Shape featuresTable: (1149, 2) | Shape labelvec: (1149, 1)
+## Testing ./prepared_userds.csv at: 18-08-2023#12:51:48 ##
+Shape featuresTable: (1149, 2) | Shape labelvec: (1149, 1)
+Shape inputData: (1381, 1024, 1025)
+Shape labelData: (1381, 1024, 1)
+## Testing ./prepared_userds.csv at: 18-08-2023#13:12:19 ##
+Shape featuresTable: (1149, 2) | Shape labelvec: (1149, 1)
+Shape inputData: (1381, 1024, 1025)
+Shape labelData: (1381, 1024, 1)
+Testing time: 0:00:23.720913
+## Testing ./prepared_userds.csv at: 18-08-2023#16:29:31 ##
+Shape featuresTable: (1091, 2) | Shape labelvec: (1091, 1)
+Shape inputData: (1361, 1024, 1025)
+Shape labelData: (1361, 1024, 1)
+Testing time: 0:00:23.035977
+## Testing ./prepared_userds.csv at: 11-09-2023#19:43:55 ##
+Shape featuresTable: (20069, 2) | Shape labelvec: (20069, 1)
+## Testing ./prepared_userds.csv at: 15-09-2023#12:59:12 ##
+Shape featuresTable: (20069, 2) | Shape labelvec: (20069, 1)
+## Testing ./prepared_userds.csv at: 15-09-2023#14:11:03 ##
+Shape featuresTable: (20069, 2) | Shape labelvec: (20069, 1)
+## Testing ./prepared_userds.csv at: 15-09-2023#16:48:36 ##
+Shape featuresTable: (20066, 2) | Shape labelvec: (20066, 1)
+## Testing ./prepared_userds.csv at: 21-09-2023#10:17:04 ##
+Shape featuresTable: (10000, 2) | Shape labelvec: (10000, 1)

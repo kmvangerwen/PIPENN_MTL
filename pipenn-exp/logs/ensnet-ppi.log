@@ -1,0 +1,320 @@
+
+#### Ensemble-Testing Biolip_P at: 28-07-2023#15:32:32 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+
+#### Ensemble-Testing Biolip_P at: 28-07-2023#15:44:36 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#15:44:36 ##
+
+#### Ensemble-Testing Biolip_P at: 28-07-2023#15:50:25 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#15:50:25 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+
+#### Ensemble-Testing Biolip_P at: 28-07-2023#15:53:41 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#15:53:42 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (336, 1024, 1151)
+Shape labelData: (336, 1024, 1)
+
+#### Ensemble-Testing Biolip_P at: 28-07-2023#16:07:03 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:07:04 ##
+
+#### Ensemble-Testing Biolip_P at: 28-07-2023#16:25:07 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:25:08 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (336, 1024, 1151)
+Shape labelData: (336, 1024, 1)
+
+#### Ensemble-Testing Biolip_P at: 28-07-2023#16:43:22 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:43:23 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (336, 1024, 1151)
+Shape labelData: (336, 1024, 1)
+
+#### Ensemble-Testing Biolip_P at: 28-07-2023#16:49:53 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:49:54 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (336, 1024, 148)
+Shape labelData: (336, 1024, 1)
+Testing time: 0:00:02.902964
+======= ARCHITECTURE_NAME: ann-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:50:12 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (84941, 1, 148)
+Shape labelData: (84941, 1, 1)
+Testing time: 0:00:08.596163
+======= ARCHITECTURE_NAME: dnet-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:50:27 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (336, 1170, 148)
+Shape labelData: (336, 1170, 1)
+Testing time: 0:00:02.818484
+======= ARCHITECTURE_NAME: rnet-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:50:47 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (336, 1024, 148)
+Shape labelData: (336, 1024, 1)
+Testing time: 0:00:01.522449
+======= ARCHITECTURE_NAME: cnn-rnn-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:51:03 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (336, 1024, 148)
+Shape labelData: (336, 1024, 1)
+Testing time: 0:00:01.816134
+======= ARCHITECTURE_NAME: unet-ppi
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:51:21 ##
+Shape featuresTable: (336, 128) | Shape labelvec: (336, 1)
+Shape inputData: (336, 1024, 148)
+Shape labelData: (336, 1024, 1)
+Testing time: 0:00:03.729210
+=======inputData (preds): (84941, 1, 6)
+=======labelData(trues): (84941, 1, 1)
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_biolip_win_p_testing.csv at: 28-07-2023#16:51:40 ##
+Shape featuresTable: (228, 128) | Shape labelvec: (228, 1)
+Shape inputData: (228, 1024, 148)
+Shape labelData: (228, 1024, 1)
+Testing time: 0:00:00.792166
+======= ARCHITECTURE_NAME: ann-ppi
+## Testing ../data/prepared_biolip_win_p_testing.csv at: 28-07-2023#16:51:50 ##
+Shape featuresTable: (228, 128) | Shape labelvec: (228, 1)
+Shape inputData: (65150, 1, 148)
+Shape labelData: (65150, 1, 1)
+Testing time: 0:00:06.536520
+======= ARCHITECTURE_NAME: dnet-ppi
+## Testing ../data/prepared_biolip_win_p_testing.csv at: 28-07-2023#16:52:02 ##
+Shape featuresTable: (228, 128) | Shape labelvec: (228, 1)
+Shape inputData: (228, 1170, 148)
+Shape labelData: (228, 1170, 1)
+Testing time: 0:00:00.614329
+======= ARCHITECTURE_NAME: rnet-ppi
+## Testing ../data/prepared_biolip_win_p_testing.csv at: 28-07-2023#16:52:12 ##
+Shape featuresTable: (228, 128) | Shape labelvec: (228, 1)
+Shape inputData: (228, 1024, 148)
+Shape labelData: (228, 1024, 1)
+Testing time: 0:00:01.022801
+======= ARCHITECTURE_NAME: cnn-rnn-ppi
+## Testing ../data/prepared_biolip_win_p_testing.csv at: 28-07-2023#16:52:22 ##
+Shape featuresTable: (228, 128) | Shape labelvec: (228, 1)
+Shape inputData: (228, 1024, 148)
+Shape labelData: (228, 1024, 1)
+Testing time: 0:00:01.508809
+======= ARCHITECTURE_NAME: unet-ppi
+## Testing ../data/prepared_biolip_win_p_testing.csv at: 28-07-2023#16:52:33 ##
+Shape featuresTable: (228, 128) | Shape labelvec: (228, 1)
+Shape inputData: (228, 1024, 148)
+Shape labelData: (228, 1024, 1)
+Testing time: 0:00:01.583904
+=======inputData (preds): (65150, 1, 6)
+=======labelData(trues): (65150, 1, 1)
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 28-07-2023#16:52:44 ##
+Testing time: 0:00:02.170757
+The best cut-off value is: 0.24
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[59600  9531]
+ [ 9531  6279]]
+ValAcc: 77.56% specScore: 86.21% presScore: 39.72% recallScore: 39.72% F1Score: 39.72% MCC: 25.93% AUC: 71.89% AP: 38.42%
+## Testing ../data/prepared_biolip_win_p_testing.csv at: 28-07-2023#16:52:53 ##
+Testing time: 0:00:01.718302
+The best cut-off value is: 0.23
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[52123  5182]
+ [ 5182  2663]]
+ValAcc: 84.09% specScore: 90.96% presScore: 33.95% recallScore: 33.95% F1Score: 33.95% MCC: 24.90% AUC: 75.56% AP: 30.22%
+Testing time: 0:03:07.205205
+
+#### Ensemble-Testing Biolip_S at: 29-07-2023#16:00:22 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_s_benchmark.csv at: 29-07-2023#16:00:22 ##
+Shape featuresTable: (354, 128) | Shape labelvec: (354, 1)
+Shape inputData: (354, 1024, 148)
+Shape labelData: (354, 1024, 1)
+Testing time: 0:00:09.431559
+======= ARCHITECTURE_NAME: ann-ppi
+## Testing ../data/prepared_ZK448_win_s_benchmark.csv at: 29-07-2023#16:00:49 ##
+Shape featuresTable: (354, 128) | Shape labelvec: (354, 1)
+Shape inputData: (99318, 1, 148)
+Shape labelData: (99318, 1, 1)
+Testing time: 0:00:10.305739
+======= ARCHITECTURE_NAME: dnet-ppi
+## Testing ../data/prepared_ZK448_win_s_benchmark.csv at: 29-07-2023#16:01:08 ##
+Shape featuresTable: (354, 128) | Shape labelvec: (354, 1)
+Shape inputData: (354, 1170, 148)
+Shape labelData: (354, 1170, 1)
+Testing time: 0:00:07.234863
+======= ARCHITECTURE_NAME: rnet-ppi
+## Testing ../data/prepared_ZK448_win_s_benchmark.csv at: 29-07-2023#16:01:33 ##
+Shape featuresTable: (354, 128) | Shape labelvec: (354, 1)
+Shape inputData: (354, 1024, 148)
+Shape labelData: (354, 1024, 1)
+Testing time: 0:00:01.503250
+======= ARCHITECTURE_NAME: cnn-rnn-ppi
+## Testing ../data/prepared_ZK448_win_s_benchmark.csv at: 29-07-2023#16:01:51 ##
+Shape featuresTable: (354, 128) | Shape labelvec: (354, 1)
+Shape inputData: (354, 1024, 148)
+Shape labelData: (354, 1024, 1)
+Testing time: 0:00:01.910829
+======= ARCHITECTURE_NAME: unet-ppi
+## Testing ../data/prepared_ZK448_win_s_benchmark.csv at: 29-07-2023#16:02:10 ##
+Shape featuresTable: (354, 128) | Shape labelvec: (354, 1)
+Shape inputData: (354, 1024, 148)
+Shape labelData: (354, 1024, 1)
+Testing time: 0:00:04.966921
+=======inputData (preds): (99318, 1, 6)
+=======labelData(trues): (99318, 1, 1)
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_biolip_win_s_testing.csv at: 29-07-2023#16:02:32 ##
+Shape featuresTable: (202, 128) | Shape labelvec: (202, 1)
+Shape inputData: (202, 1024, 148)
+Shape labelData: (202, 1024, 1)
+Testing time: 0:00:00.738546
+======= ARCHITECTURE_NAME: ann-ppi
+## Testing ../data/prepared_biolip_win_s_testing.csv at: 29-07-2023#16:02:41 ##
+Shape featuresTable: (202, 128) | Shape labelvec: (202, 1)
+Shape inputData: (64609, 1, 148)
+Shape labelData: (64609, 1, 1)
+Testing time: 0:00:06.839787
+======= ARCHITECTURE_NAME: dnet-ppi
+## Testing ../data/prepared_biolip_win_s_testing.csv at: 29-07-2023#16:02:52 ##
+Shape featuresTable: (202, 128) | Shape labelvec: (202, 1)
+Shape inputData: (202, 1170, 148)
+Shape labelData: (202, 1170, 1)
+Testing time: 0:00:00.624886
+======= ARCHITECTURE_NAME: rnet-ppi
+## Testing ../data/prepared_biolip_win_s_testing.csv at: 29-07-2023#16:03:01 ##
+Shape featuresTable: (202, 128) | Shape labelvec: (202, 1)
+Shape inputData: (202, 1024, 148)
+Shape labelData: (202, 1024, 1)
+Testing time: 0:00:00.996026
+======= ARCHITECTURE_NAME: cnn-rnn-ppi
+## Testing ../data/prepared_biolip_win_s_testing.csv at: 29-07-2023#16:03:10 ##
+Shape featuresTable: (202, 128) | Shape labelvec: (202, 1)
+Shape inputData: (202, 1024, 148)
+Shape labelData: (202, 1024, 1)
+Testing time: 0:00:01.733386
+======= ARCHITECTURE_NAME: unet-ppi
+## Testing ../data/prepared_biolip_win_s_testing.csv at: 29-07-2023#16:03:20 ##
+Shape featuresTable: (202, 128) | Shape labelvec: (202, 1)
+Shape inputData: (202, 1024, 148)
+Shape labelData: (202, 1024, 1)
+Testing time: 0:00:01.729083
+=======inputData (preds): (64609, 1, 6)
+=======labelData(trues): (64609, 1, 1)
+## Testing ../data/prepared_ZK448_win_s_benchmark.csv at: 29-07-2023#16:03:29 ##
+Testing time: 0:00:02.609487
+The best cut-off value is: 0.27
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[88017  4126]
+ [ 4126  3049]]
+ValAcc: 91.69% specScore: 95.52% presScore: 42.49% recallScore: 42.49% F1Score: 42.49% MCC: 38.02% AUC: 84.29% AP: 40.22%
+## Testing ../data/prepared_biolip_win_s_testing.csv at: 29-07-2023#16:03:40 ##
+Testing time: 0:00:01.699130
+The best cut-off value is: 0.25
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[59762  1792]
+ [ 1792  1263]]
+ValAcc: 94.45% specScore: 97.09% presScore: 41.34% recallScore: 41.34% F1Score: 41.34% MCC: 38.43% AUC: 86.48% AP: 38.86%
+Testing time: 0:03:24.776407
+
+#### Ensemble-Testing Biolip_N at: 29-07-2023#16:21:43 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_n_benchmark.csv at: 29-07-2023#16:21:44 ##
+
+#### Ensemble-Testing Biolip_N at: 29-07-2023#16:35:41 ####
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_ZK448_win_n_benchmark.csv at: 29-07-2023#16:35:42 ##
+Shape featuresTable: (38, 128) | Shape labelvec: (38, 1)
+Shape inputData: (38, 1024, 148)
+Shape labelData: (38, 1024, 1)
+Testing time: 0:00:01.435428
+======= ARCHITECTURE_NAME: ann-ppi
+## Testing ../data/prepared_ZK448_win_n_benchmark.csv at: 29-07-2023#16:35:45 ##
+Shape featuresTable: (38, 128) | Shape labelvec: (38, 1)
+Shape inputData: (10212, 1, 148)
+Shape labelData: (10212, 1, 1)
+Testing time: 0:00:01.605763
+======= ARCHITECTURE_NAME: dnet-ppi
+## Testing ../data/prepared_ZK448_win_n_benchmark.csv at: 29-07-2023#16:35:47 ##
+Shape featuresTable: (38, 128) | Shape labelvec: (38, 1)
+Shape inputData: (38, 1170, 148)
+Shape labelData: (38, 1170, 1)
+Testing time: 0:00:01.303201
+======= ARCHITECTURE_NAME: rnet-ppi
+## Testing ../data/prepared_ZK448_win_n_benchmark.csv at: 29-07-2023#16:35:50 ##
+Shape featuresTable: (38, 128) | Shape labelvec: (38, 1)
+Shape inputData: (38, 1024, 148)
+Shape labelData: (38, 1024, 1)
+Testing time: 0:00:00.702666
+======= ARCHITECTURE_NAME: cnn-rnn-ppi
+## Testing ../data/prepared_ZK448_win_n_benchmark.csv at: 29-07-2023#16:35:52 ##
+Shape featuresTable: (38, 128) | Shape labelvec: (38, 1)
+Shape inputData: (38, 1024, 148)
+Shape labelData: (38, 1024, 1)
+Testing time: 0:00:00.902363
+======= ARCHITECTURE_NAME: unet-ppi
+## Testing ../data/prepared_ZK448_win_n_benchmark.csv at: 29-07-2023#16:35:54 ##
+Shape featuresTable: (38, 128) | Shape labelvec: (38, 1)
+Shape inputData: (38, 1024, 148)
+Shape labelData: (38, 1024, 1)
+Testing time: 0:00:02.190678
+=======inputData (preds): (10212, 1, 6)
+=======labelData(trues): (10212, 1, 1)
+======= ARCHITECTURE_NAME: rnn-ppi
+## Testing ../data/prepared_biolip_win_n_testing.csv at: 29-07-2023#16:35:57 ##
+Shape featuresTable: (23, 128) | Shape labelvec: (23, 1)
+Shape inputData: (23, 1024, 148)
+Shape labelData: (23, 1024, 1)
+Testing time: 0:00:00.436591
+======= ARCHITECTURE_NAME: ann-ppi
+## Testing ../data/prepared_biolip_win_n_testing.csv at: 29-07-2023#16:35:59 ##
+Shape featuresTable: (23, 128) | Shape labelvec: (23, 1)
+Shape inputData: (7551, 1, 148)
+Shape labelData: (7551, 1, 1)
+Testing time: 0:00:01.089027
+======= ARCHITECTURE_NAME: dnet-ppi
+## Testing ../data/prepared_biolip_win_n_testing.csv at: 29-07-2023#16:36:00 ##
+Shape featuresTable: (23, 128) | Shape labelvec: (23, 1)
+Shape inputData: (23, 1170, 148)
+Shape labelData: (23, 1170, 1)
+Testing time: 0:00:00.535560
+======= ARCHITECTURE_NAME: rnet-ppi
+## Testing ../data/prepared_biolip_win_n_testing.csv at: 29-07-2023#16:36:02 ##
+Shape featuresTable: (23, 128) | Shape labelvec: (23, 1)
+Shape inputData: (23, 1024, 148)
+Shape labelData: (23, 1024, 1)
+Testing time: 0:00:00.596169
+======= ARCHITECTURE_NAME: cnn-rnn-ppi
+## Testing ../data/prepared_biolip_win_n_testing.csv at: 29-07-2023#16:36:04 ##
+Shape featuresTable: (23, 128) | Shape labelvec: (23, 1)
+Shape inputData: (23, 1024, 148)
+Shape labelData: (23, 1024, 1)
+Testing time: 0:00:00.838763
+======= ARCHITECTURE_NAME: unet-ppi
+## Testing ../data/prepared_biolip_win_n_testing.csv at: 29-07-2023#16:36:06 ##
+Shape featuresTable: (23, 128) | Shape labelvec: (23, 1)
+Shape inputData: (23, 1024, 148)
+Shape labelData: (23, 1024, 1)
+Testing time: 0:00:01.455552
+=======inputData (preds): (7551, 1, 6)
+=======labelData(trues): (7551, 1, 1)
+## Testing ../data/prepared_ZK448_win_n_benchmark.csv at: 29-07-2023#16:36:08 ##
+Testing time: 0:00:00.332194
+The best cut-off value is: 0.34
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[8325  654]
+ [ 654  579]]
+ValAcc: 87.19% specScore: 92.72% presScore: 46.96% recallScore: 46.96% F1Score: 46.96% MCC: 39.67% AUC: 82.31% AP: 46.03%
+## Testing ../data/prepared_biolip_win_n_testing.csv at: 29-07-2023#16:36:09 ##
+Testing time: 0:00:00.233835
+The best cut-off value is: 0.37
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[6743  297]
+ [ 297  214]]
+ValAcc: 92.13% specScore: 95.78% presScore: 41.88% recallScore: 41.88% F1Score: 41.88% MCC: 37.66% AUC: 89.49% AP: 39.98%
+Testing time: 0:00:28.716032

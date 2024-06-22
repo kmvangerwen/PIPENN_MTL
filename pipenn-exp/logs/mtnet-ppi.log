@@ -1,0 +1,1159 @@
+
+## Starting Training & Testing;; @@ trained on: ../data/prepared_epitope_training.csv at: 19-04-2024#14:30:22 @@
+## tf-version: 2.15.0|| float_type: float64
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input (InputLayer)          [(None, 1170, 1025)]         0         []                            
+                                                                                                  
+ conv1d (Conv1D)             (None, 1170, 64)             459200    ['input[0][0]']               
+                                                                                                  
+ dropout (Dropout)           (None, 1170, 64)             0         ['conv1d[0][0]']              
+                                                                                                  
+ batch_normalization (Batch  (None, 1170, 64)             256       ['dropout[0][0]']             
+ Normalization)                                                                                   
+                                                                                                  
+ p_re_lu (PReLU)             (None, 1170, 64)             74880     ['batch_normalization[0][0]'] 
+                                                                                                  
+ conv1d_1 (Conv1D)           (None, 1170, 128)            57344     ['p_re_lu[0][0]']             
+                                                                                                  
+ dropout_1 (Dropout)         (None, 1170, 128)            0         ['conv1d_1[0][0]']            
+                                                                                                  
+ batch_normalization_1 (Bat  (None, 1170, 128)            512       ['dropout_1[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_1 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_1[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_2 (Conv1D)           (None, 1170, 128)            114688    ['p_re_lu_1[0][0]']           
+                                                                                                  
+ dropout_2 (Dropout)         (None, 1170, 128)            0         ['conv1d_2[0][0]']            
+                                                                                                  
+ batch_normalization_2 (Bat  (None, 1170, 128)            512       ['dropout_2[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_2 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_2[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_3 (Conv1D)           (None, 1170, 64)             57344     ['p_re_lu_2[0][0]']           
+                                                                                                  
+ dropout_3 (Dropout)         (None, 1170, 64)             0         ['conv1d_3[0][0]']            
+                                                                                                  
+ batch_normalization_3 (Bat  (None, 1170, 64)             256       ['dropout_3[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_3 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_3[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_4 (Conv1D)           (None, 1170, 32)             14336     ['p_re_lu_3[0][0]']           
+                                                                                                  
+ dropout_4 (Dropout)         (None, 1170, 32)             0         ['conv1d_4[0][0]']            
+                                                                                                  
+ batch_normalization_4 (Bat  (None, 1170, 32)             128       ['dropout_4[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_4 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_4[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_5 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_6 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ dropout_5 (Dropout)         (None, 1170, 32)             0         ['conv1d_5[0][0]']            
+                                                                                                  
+ dropout_6 (Dropout)         (None, 1170, 32)             0         ['conv1d_6[0][0]']            
+                                                                                                  
+ batch_normalization_5 (Bat  (None, 1170, 32)             128       ['dropout_5[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_6 (Bat  (None, 1170, 32)             128       ['dropout_6[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_5 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_5[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_6 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_6[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_7 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_5[0][0]']           
+                                                                                                  
+ conv1d_8 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_6[0][0]']           
+                                                                                                  
+ dropout_7 (Dropout)         (None, 1170, 16)             0         ['conv1d_7[0][0]']            
+                                                                                                  
+ dropout_8 (Dropout)         (None, 1170, 16)             0         ['conv1d_8[0][0]']            
+                                                                                                  
+ batch_normalization_7 (Bat  (None, 1170, 16)             64        ['dropout_7[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_8 (Bat  (None, 1170, 16)             64        ['dropout_8[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_7 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_7[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_8 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_8[0][0]'
+                                                                    ]                             
+                                                                                                  
+ ppi (Dense)                 (None, 1170, 1)              17        ['p_re_lu_7[0][0]']           
+                                                                                                  
+ dyna (Dense)                (None, 1170, 1)              17        ['p_re_lu_8[0][0]']           
+                                                                                                  
+==================================================================================================
+Total params: 1325538 (10.11 MB)
+Trainable params: 1324514 (10.11 MB)
+Non-trainable params: 1024 (8.00 KB)
+__________________________________________________________________________________________________
+
+## Starting Training & Testing;; @@ trained on: ../data/prepared_epitope_training.csv at: 19-04-2024#14:31:12 @@
+## tf-version: 2.15.0|| float_type: float64
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input (InputLayer)          [(None, 1170, 1025)]         0         []                            
+                                                                                                  
+ conv1d (Conv1D)             (None, 1170, 64)             459200    ['input[0][0]']               
+                                                                                                  
+ dropout (Dropout)           (None, 1170, 64)             0         ['conv1d[0][0]']              
+                                                                                                  
+ batch_normalization (Batch  (None, 1170, 64)             256       ['dropout[0][0]']             
+ Normalization)                                                                                   
+                                                                                                  
+ p_re_lu (PReLU)             (None, 1170, 64)             74880     ['batch_normalization[0][0]'] 
+                                                                                                  
+ conv1d_1 (Conv1D)           (None, 1170, 128)            57344     ['p_re_lu[0][0]']             
+                                                                                                  
+ dropout_1 (Dropout)         (None, 1170, 128)            0         ['conv1d_1[0][0]']            
+                                                                                                  
+ batch_normalization_1 (Bat  (None, 1170, 128)            512       ['dropout_1[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_1 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_1[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_2 (Conv1D)           (None, 1170, 128)            114688    ['p_re_lu_1[0][0]']           
+                                                                                                  
+ dropout_2 (Dropout)         (None, 1170, 128)            0         ['conv1d_2[0][0]']            
+                                                                                                  
+ batch_normalization_2 (Bat  (None, 1170, 128)            512       ['dropout_2[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_2 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_2[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_3 (Conv1D)           (None, 1170, 64)             57344     ['p_re_lu_2[0][0]']           
+                                                                                                  
+ dropout_3 (Dropout)         (None, 1170, 64)             0         ['conv1d_3[0][0]']            
+                                                                                                  
+ batch_normalization_3 (Bat  (None, 1170, 64)             256       ['dropout_3[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_3 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_3[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_4 (Conv1D)           (None, 1170, 32)             14336     ['p_re_lu_3[0][0]']           
+                                                                                                  
+ dropout_4 (Dropout)         (None, 1170, 32)             0         ['conv1d_4[0][0]']            
+                                                                                                  
+ batch_normalization_4 (Bat  (None, 1170, 32)             128       ['dropout_4[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_4 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_4[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_5 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_6 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ dropout_5 (Dropout)         (None, 1170, 32)             0         ['conv1d_5[0][0]']            
+                                                                                                  
+ dropout_6 (Dropout)         (None, 1170, 32)             0         ['conv1d_6[0][0]']            
+                                                                                                  
+ batch_normalization_5 (Bat  (None, 1170, 32)             128       ['dropout_5[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_6 (Bat  (None, 1170, 32)             128       ['dropout_6[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_5 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_5[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_6 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_6[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_7 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_5[0][0]']           
+                                                                                                  
+ conv1d_8 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_6[0][0]']           
+                                                                                                  
+ dropout_7 (Dropout)         (None, 1170, 16)             0         ['conv1d_7[0][0]']            
+                                                                                                  
+ dropout_8 (Dropout)         (None, 1170, 16)             0         ['conv1d_8[0][0]']            
+                                                                                                  
+ batch_normalization_7 (Bat  (None, 1170, 16)             64        ['dropout_7[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_8 (Bat  (None, 1170, 16)             64        ['dropout_8[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_7 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_7[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_8 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_8[0][0]'
+                                                                    ]                             
+                                                                                                  
+ ppi (Dense)                 (None, 1170, 1)              17        ['p_re_lu_7[0][0]']           
+                                                                                                  
+ dyna (Dense)                (None, 1170, 1)              17        ['p_re_lu_8[0][0]']           
+                                                                                                  
+==================================================================================================
+Total params: 1325538 (10.11 MB)
+Trainable params: 1324514 (10.11 MB)
+Non-trainable params: 1024 (8.00 KB)
+__________________________________________________________________________________________________
+Shape featuresTable: (100, 2) | Shape labelvec: (100, 2)
+Shape inputData: (100, 1170, 1025)
+Shape labelData: (100, 1170, 2)
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[   0 2342]
+ [   0  610]]
+The best cut-off value is: 0.52
+Training Metrics Interface1, Epoch:0  ValAcc: 0.20663956639566394 specScore: 0.00% presScore: 20.66% recallScore: 100.00% F1Score: 34.25% MCC: 0.00% AUC: 51.93% AP: 21.30%
+Training Metrics DYNA_q,  pcc: -7.26%, pvalue: 0.01%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1467  875]
+ [ 383  227]]
+The best cut-off value is: 0.53
+Training Metrics Interface1, Epoch:1  ValAcc: 0.5738482384823849 specScore: 62.64% presScore: 20.60% recallScore: 37.21% F1Score: 26.52% MCC: -0.12% AUC: 49.80% AP: 20.87%
+Training Metrics DYNA_q,  pcc: -10.30%, pvalue: 0.00%
+
+## Starting Training & Testing;; @@ trained on: ../data/prepared_epitope_training.csv at: 19-04-2024#14:43:19 @@
+## tf-version: 2.15.0|| float_type: float64
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input (InputLayer)          [(None, 1170, 1025)]         0         []                            
+                                                                                                  
+ conv1d (Conv1D)             (None, 1170, 64)             459200    ['input[0][0]']               
+                                                                                                  
+ dropout (Dropout)           (None, 1170, 64)             0         ['conv1d[0][0]']              
+                                                                                                  
+ batch_normalization (Batch  (None, 1170, 64)             256       ['dropout[0][0]']             
+ Normalization)                                                                                   
+                                                                                                  
+ p_re_lu (PReLU)             (None, 1170, 64)             74880     ['batch_normalization[0][0]'] 
+                                                                                                  
+ conv1d_1 (Conv1D)           (None, 1170, 128)            57344     ['p_re_lu[0][0]']             
+                                                                                                  
+ dropout_1 (Dropout)         (None, 1170, 128)            0         ['conv1d_1[0][0]']            
+                                                                                                  
+ batch_normalization_1 (Bat  (None, 1170, 128)            512       ['dropout_1[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_1 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_1[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_2 (Conv1D)           (None, 1170, 128)            114688    ['p_re_lu_1[0][0]']           
+                                                                                                  
+ dropout_2 (Dropout)         (None, 1170, 128)            0         ['conv1d_2[0][0]']            
+                                                                                                  
+ batch_normalization_2 (Bat  (None, 1170, 128)            512       ['dropout_2[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_2 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_2[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_3 (Conv1D)           (None, 1170, 64)             57344     ['p_re_lu_2[0][0]']           
+                                                                                                  
+ dropout_3 (Dropout)         (None, 1170, 64)             0         ['conv1d_3[0][0]']            
+                                                                                                  
+ batch_normalization_3 (Bat  (None, 1170, 64)             256       ['dropout_3[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_3 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_3[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_4 (Conv1D)           (None, 1170, 32)             14336     ['p_re_lu_3[0][0]']           
+                                                                                                  
+ dropout_4 (Dropout)         (None, 1170, 32)             0         ['conv1d_4[0][0]']            
+                                                                                                  
+ batch_normalization_4 (Bat  (None, 1170, 32)             128       ['dropout_4[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_4 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_4[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_5 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_6 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ dropout_5 (Dropout)         (None, 1170, 32)             0         ['conv1d_5[0][0]']            
+                                                                                                  
+ dropout_6 (Dropout)         (None, 1170, 32)             0         ['conv1d_6[0][0]']            
+                                                                                                  
+ batch_normalization_5 (Bat  (None, 1170, 32)             128       ['dropout_5[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_6 (Bat  (None, 1170, 32)             128       ['dropout_6[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_5 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_5[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_6 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_6[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_7 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_5[0][0]']           
+                                                                                                  
+ conv1d_8 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_6[0][0]']           
+                                                                                                  
+ dropout_7 (Dropout)         (None, 1170, 16)             0         ['conv1d_7[0][0]']            
+                                                                                                  
+ dropout_8 (Dropout)         (None, 1170, 16)             0         ['conv1d_8[0][0]']            
+                                                                                                  
+ batch_normalization_7 (Bat  (None, 1170, 16)             64        ['dropout_7[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_8 (Bat  (None, 1170, 16)             64        ['dropout_8[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_7 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_7[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_8 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_8[0][0]'
+                                                                    ]                             
+                                                                                                  
+ ppi (Dense)                 (None, 1170, 1)              17        ['p_re_lu_7[0][0]']           
+                                                                                                  
+ dyna (Dense)                (None, 1170, 1)              17        ['p_re_lu_8[0][0]']           
+                                                                                                  
+==================================================================================================
+Total params: 1325538 (10.11 MB)
+Trainable params: 1324514 (10.11 MB)
+Non-trainable params: 1024 (8.00 KB)
+__________________________________________________________________________________________________
+Shape featuresTable: (100, 2) | Shape labelvec: (100, 2)
+Shape inputData: (100, 1170, 1025)
+Shape labelData: (100, 1170, 2)
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[   0 2342]
+ [   0  610]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:0  ValAcc: 0.20663956639566394 specScore: 0.00% presScore: 20.66% recallScore: 100.00% F1Score: 34.25% MCC: 0.00% AUC: 47.54% AP: 20.25%
+Training Metrics DYNA_q,  pcc: -2.98%, pvalue: 10.53%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1920  422]
+ [ 504  106]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:1  ValAcc: 0.6863143631436315 specScore: 81.98% presScore: 20.08% recallScore: 17.38% F1Score: 18.63% MCC: -0.68% AUC: 48.68% AP: 20.75%
+Training Metrics DYNA_q,  pcc: -0.51%, pvalue: 78.06%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1930  412]
+ [ 512   98]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:2  ValAcc: 0.6869918699186992 specScore: 82.41% presScore: 19.22% recallScore: 16.07% F1Score: 17.50% MCC: -1.63% AUC: 47.78% AP: 20.29%
+Training Metrics DYNA_q,  pcc: 3.43%, pvalue: 6.28%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1912  430]
+ [ 503  107]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:3  ValAcc: 0.6839430894308943 specScore: 81.64% presScore: 19.93% recallScore: 17.54% F1Score: 18.66% MCC: -0.86% AUC: 47.22% AP: 19.78%
+Training Metrics DYNA_q,  pcc: 8.06%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1838  504]
+ [ 478  132]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:4  ValAcc: 0.6673441734417345 specScore: 78.48% presScore: 20.75% recallScore: 21.64% F1Score: 21.19% MCC: 0.12% AUC: 48.23% AP: 20.18%
+Training Metrics DYNA_q,  pcc: 11.39%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1830  512]
+ [ 481  129]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:5  ValAcc: 0.6636178861788617 specScore: 78.14% presScore: 20.12% recallScore: 21.15% F1Score: 20.62% MCC: -0.70% AUC: 47.82% AP: 20.24%
+Training Metrics DYNA_q,  pcc: 13.78%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1817  525]
+ [ 490  120]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:6  ValAcc: 0.6561653116531165 specScore: 77.58% presScore: 18.60% recallScore: 19.67% F1Score: 19.12% MCC: -2.69% AUC: 46.35% AP: 19.56%
+Training Metrics DYNA_q,  pcc: 15.79%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1655  687]
+ [ 449  161]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:7  ValAcc: 0.6151761517615176 specScore: 70.67% presScore: 18.99% recallScore: 26.39% F1Score: 22.09% MCC: -2.63% AUC: 44.65% AP: 18.93%
+Training Metrics DYNA_q,  pcc: 17.21%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1534  808]
+ [ 440  170]]
+The best cut-off value is: 0.52
+Training Metrics Interface1, Epoch:8  ValAcc: 0.5772357723577236 specScore: 65.50% presScore: 17.38% recallScore: 27.87% F1Score: 21.41% MCC: -5.70% AUC: 43.66% AP: 18.68%
+Training Metrics DYNA_q,  pcc: 18.60%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1451  891]
+ [ 427  183]]
+The best cut-off value is: 0.53
+Training Metrics Interface1, Epoch:9  ValAcc: 0.5535230352303523 specScore: 61.96% presScore: 17.04% recallScore: 30.00% F1Score: 21.73% MCC: -6.77% AUC: 43.47% AP: 18.71%
+Training Metrics DYNA_q,  pcc: 21.45%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1510  832]
+ [ 447  163]]
+The best cut-off value is: 0.54
+Training Metrics Interface1, Epoch:10  ValAcc: 0.5667344173441734 specScore: 64.47% presScore: 16.38% recallScore: 26.72% F1Score: 20.31% MCC: -7.54% AUC: 43.84% AP: 18.94%
+Training Metrics DYNA_q,  pcc: 24.82%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1583  759]
+ [ 454  156]]
+The best cut-off value is: 0.54
+Training Metrics Interface1, Epoch:11  ValAcc: 0.5890921409214093 specScore: 67.59% presScore: 17.05% recallScore: 25.57% F1Score: 20.46% MCC: -5.98% AUC: 44.20% AP: 19.21%
+Training Metrics DYNA_q,  pcc: 27.42%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1520  822]
+ [ 441  169]]
+The best cut-off value is: 0.55
+Training Metrics Interface1, Epoch:12  ValAcc: 0.5721544715447154 specScore: 64.90% presScore: 17.05% recallScore: 27.70% F1Score: 21.11% MCC: -6.34% AUC: 44.79% AP: 19.39%
+Training Metrics DYNA_q,  pcc: 29.75%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1510  832]
+ [ 431  179]]
+The best cut-off value is: 0.55
+Training Metrics Interface1, Epoch:13  ValAcc: 0.5721544715447154 specScore: 64.47% presScore: 17.71% recallScore: 29.34% F1Score: 22.09% MCC: -5.27% AUC: 45.24% AP: 19.78%
+Training Metrics DYNA_q,  pcc: 32.13%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1524  818]
+ [ 430  180]]
+The best cut-off value is: 0.56
+Training Metrics Interface1, Epoch:14  ValAcc: 0.5772357723577236 specScore: 65.07% presScore: 18.04% recallScore: 29.51% F1Score: 22.39% MCC: -4.64% AUC: 45.22% AP: 19.95%
+Training Metrics DYNA_q,  pcc: 33.98%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1534  808]
+ [ 427  183]]
+The best cut-off value is: 0.56
+Training Metrics Interface1, Epoch:15  ValAcc: 0.5816395663956639 specScore: 65.50% presScore: 18.47% recallScore: 30.00% F1Score: 22.86% MCC: -3.86% AUC: 45.49% AP: 20.09%
+Training Metrics DYNA_q,  pcc: 35.76%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1588  754]
+ [ 440  170]]
+The best cut-off value is: 0.57
+Training Metrics Interface1, Epoch:16  ValAcc: 0.5955284552845529 specScore: 67.81% presScore: 18.40% recallScore: 27.87% F1Score: 22.16% MCC: -3.78% AUC: 45.85% AP: 20.31%
+Training Metrics DYNA_q,  pcc: 37.14%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1629  713]
+ [ 441  169]]
+The best cut-off value is: 0.57
+Training Metrics Interface1, Epoch:17  ValAcc: 0.6090785907859079 specScore: 69.56% presScore: 19.16% recallScore: 27.70% F1Score: 22.65% MCC: -2.42% AUC: 46.33% AP: 20.58%
+Training Metrics DYNA_q,  pcc: 38.38%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1625  717]
+ [ 431  179]]
+The best cut-off value is: 0.58
+Training Metrics Interface1, Epoch:18  ValAcc: 0.6111111111111112 specScore: 69.39% presScore: 19.98% recallScore: 29.34% F1Score: 23.77% MCC: -1.12% AUC: 46.77% AP: 20.93%
+Training Metrics DYNA_q,  pcc: 39.44%, pvalue: 0.00%
+
+## Starting Training & Testing;; @@ trained on: ../data/prepared_epitope_training.csv at: 19-04-2024#14:55:54 @@
+## tf-version: 2.15.0|| float_type: float64
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input (InputLayer)          [(None, 1170, 1025)]         0         []                            
+                                                                                                  
+ conv1d (Conv1D)             (None, 1170, 64)             459200    ['input[0][0]']               
+                                                                                                  
+ dropout (Dropout)           (None, 1170, 64)             0         ['conv1d[0][0]']              
+                                                                                                  
+ batch_normalization (Batch  (None, 1170, 64)             256       ['dropout[0][0]']             
+ Normalization)                                                                                   
+                                                                                                  
+ p_re_lu (PReLU)             (None, 1170, 64)             74880     ['batch_normalization[0][0]'] 
+                                                                                                  
+ conv1d_1 (Conv1D)           (None, 1170, 128)            57344     ['p_re_lu[0][0]']             
+                                                                                                  
+ dropout_1 (Dropout)         (None, 1170, 128)            0         ['conv1d_1[0][0]']            
+                                                                                                  
+ batch_normalization_1 (Bat  (None, 1170, 128)            512       ['dropout_1[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_1 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_1[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_2 (Conv1D)           (None, 1170, 128)            114688    ['p_re_lu_1[0][0]']           
+                                                                                                  
+ dropout_2 (Dropout)         (None, 1170, 128)            0         ['conv1d_2[0][0]']            
+                                                                                                  
+ batch_normalization_2 (Bat  (None, 1170, 128)            512       ['dropout_2[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_2 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_2[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_3 (Conv1D)           (None, 1170, 64)             57344     ['p_re_lu_2[0][0]']           
+                                                                                                  
+ dropout_3 (Dropout)         (None, 1170, 64)             0         ['conv1d_3[0][0]']            
+                                                                                                  
+ batch_normalization_3 (Bat  (None, 1170, 64)             256       ['dropout_3[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_3 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_3[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_4 (Conv1D)           (None, 1170, 32)             14336     ['p_re_lu_3[0][0]']           
+                                                                                                  
+ dropout_4 (Dropout)         (None, 1170, 32)             0         ['conv1d_4[0][0]']            
+                                                                                                  
+ batch_normalization_4 (Bat  (None, 1170, 32)             128       ['dropout_4[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_4 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_4[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_5 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_6 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_7 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ dropout_5 (Dropout)         (None, 1170, 32)             0         ['conv1d_5[0][0]']            
+                                                                                                  
+ dropout_6 (Dropout)         (None, 1170, 32)             0         ['conv1d_6[0][0]']            
+                                                                                                  
+ dropout_7 (Dropout)         (None, 1170, 32)             0         ['conv1d_7[0][0]']            
+                                                                                                  
+ batch_normalization_5 (Bat  (None, 1170, 32)             128       ['dropout_5[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_6 (Bat  (None, 1170, 32)             128       ['dropout_6[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_7 (Bat  (None, 1170, 32)             128       ['dropout_7[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_5 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_5[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_6 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_6[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_7 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_7[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_8 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_5[0][0]']           
+                                                                                                  
+ conv1d_9 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_6[0][0]']           
+                                                                                                  
+ conv1d_10 (Conv1D)          (None, 1170, 16)             3584      ['p_re_lu_7[0][0]']           
+                                                                                                  
+ dropout_8 (Dropout)         (None, 1170, 16)             0         ['conv1d_8[0][0]']            
+                                                                                                  
+ dropout_9 (Dropout)         (None, 1170, 16)             0         ['conv1d_9[0][0]']            
+                                                                                                  
+ dropout_10 (Dropout)        (None, 1170, 16)             0         ['conv1d_10[0][0]']           
+                                                                                                  
+ batch_normalization_8 (Bat  (None, 1170, 16)             64        ['dropout_8[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_9 (Bat  (None, 1170, 16)             64        ['dropout_9[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_10 (Ba  (None, 1170, 16)             64        ['dropout_10[0][0]']          
+ tchNormalization)                                                                                
+                                                                                                  
+ p_re_lu_8 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_8[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_9 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_9[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_10 (PReLU)          (None, 1170, 16)             18720     ['batch_normalization_10[0][0]
+                                                                    ']                            
+                                                                                                  
+ ppi (Dense)                 (None, 1170, 1)              17        ['p_re_lu_8[0][0]']           
+                                                                                                  
+ dyna (Dense)                (None, 1170, 1)              17        ['p_re_lu_9[0][0]']           
+                                                                                                  
+ rsa (Dense)                 (None, 1170, 1)              17        ['p_re_lu_10[0][0]']          
+                                                                                                  
+==================================================================================================
+Total params: 1392659 (10.63 MB)
+Trainable params: 1391539 (10.62 MB)
+Non-trainable params: 1120 (8.75 KB)
+__________________________________________________________________________________________________
+Shape featuresTable: (100, 2) | Shape labelvec: (100, 3)
+Shape inputData: (100, 1170, 1025)
+Shape labelData: (100, 1170, 3)
+
+## Starting Training & Testing;; @@ trained on: ../data/prepared_epitope_training.csv at: 19-04-2024#14:58:33 @@
+## tf-version: 2.15.0|| float_type: float64
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input (InputLayer)          [(None, 1170, 1025)]         0         []                            
+                                                                                                  
+ conv1d (Conv1D)             (None, 1170, 64)             459200    ['input[0][0]']               
+                                                                                                  
+ dropout (Dropout)           (None, 1170, 64)             0         ['conv1d[0][0]']              
+                                                                                                  
+ batch_normalization (Batch  (None, 1170, 64)             256       ['dropout[0][0]']             
+ Normalization)                                                                                   
+                                                                                                  
+ p_re_lu (PReLU)             (None, 1170, 64)             74880     ['batch_normalization[0][0]'] 
+                                                                                                  
+ conv1d_1 (Conv1D)           (None, 1170, 128)            57344     ['p_re_lu[0][0]']             
+                                                                                                  
+ dropout_1 (Dropout)         (None, 1170, 128)            0         ['conv1d_1[0][0]']            
+                                                                                                  
+ batch_normalization_1 (Bat  (None, 1170, 128)            512       ['dropout_1[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_1 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_1[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_2 (Conv1D)           (None, 1170, 128)            114688    ['p_re_lu_1[0][0]']           
+                                                                                                  
+ dropout_2 (Dropout)         (None, 1170, 128)            0         ['conv1d_2[0][0]']            
+                                                                                                  
+ batch_normalization_2 (Bat  (None, 1170, 128)            512       ['dropout_2[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_2 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_2[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_3 (Conv1D)           (None, 1170, 64)             57344     ['p_re_lu_2[0][0]']           
+                                                                                                  
+ dropout_3 (Dropout)         (None, 1170, 64)             0         ['conv1d_3[0][0]']            
+                                                                                                  
+ batch_normalization_3 (Bat  (None, 1170, 64)             256       ['dropout_3[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_3 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_3[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_4 (Conv1D)           (None, 1170, 32)             14336     ['p_re_lu_3[0][0]']           
+                                                                                                  
+ dropout_4 (Dropout)         (None, 1170, 32)             0         ['conv1d_4[0][0]']            
+                                                                                                  
+ batch_normalization_4 (Bat  (None, 1170, 32)             128       ['dropout_4[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_4 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_4[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_5 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_6 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_7 (Conv1D)           (None, 1170, 32)             7168      ['p_re_lu_4[0][0]']           
+                                                                                                  
+ dropout_5 (Dropout)         (None, 1170, 32)             0         ['conv1d_5[0][0]']            
+                                                                                                  
+ dropout_6 (Dropout)         (None, 1170, 32)             0         ['conv1d_6[0][0]']            
+                                                                                                  
+ dropout_7 (Dropout)         (None, 1170, 32)             0         ['conv1d_7[0][0]']            
+                                                                                                  
+ batch_normalization_5 (Bat  (None, 1170, 32)             128       ['dropout_5[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_6 (Bat  (None, 1170, 32)             128       ['dropout_6[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_7 (Bat  (None, 1170, 32)             128       ['dropout_7[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_5 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_5[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_6 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_6[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_7 (PReLU)           (None, 1170, 32)             37440     ['batch_normalization_7[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_8 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_5[0][0]']           
+                                                                                                  
+ conv1d_9 (Conv1D)           (None, 1170, 16)             3584      ['p_re_lu_6[0][0]']           
+                                                                                                  
+ conv1d_10 (Conv1D)          (None, 1170, 16)             3584      ['p_re_lu_7[0][0]']           
+                                                                                                  
+ dropout_8 (Dropout)         (None, 1170, 16)             0         ['conv1d_8[0][0]']            
+                                                                                                  
+ dropout_9 (Dropout)         (None, 1170, 16)             0         ['conv1d_9[0][0]']            
+                                                                                                  
+ dropout_10 (Dropout)        (None, 1170, 16)             0         ['conv1d_10[0][0]']           
+                                                                                                  
+ batch_normalization_8 (Bat  (None, 1170, 16)             64        ['dropout_8[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_9 (Bat  (None, 1170, 16)             64        ['dropout_9[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_10 (Ba  (None, 1170, 16)             64        ['dropout_10[0][0]']          
+ tchNormalization)                                                                                
+                                                                                                  
+ p_re_lu_8 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_8[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_9 (PReLU)           (None, 1170, 16)             18720     ['batch_normalization_9[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_10 (PReLU)          (None, 1170, 16)             18720     ['batch_normalization_10[0][0]
+                                                                    ']                            
+                                                                                                  
+ ppi (Dense)                 (None, 1170, 1)              17        ['p_re_lu_8[0][0]']           
+                                                                                                  
+ dyna (Dense)                (None, 1170, 1)              17        ['p_re_lu_9[0][0]']           
+                                                                                                  
+ rsa (Dense)                 (None, 1170, 1)              17        ['p_re_lu_10[0][0]']          
+                                                                                                  
+==================================================================================================
+Total params: 1392659 (10.63 MB)
+Trainable params: 1391539 (10.62 MB)
+Non-trainable params: 1120 (8.75 KB)
+__________________________________________________________________________________________________
+Shape featuresTable: (100, 2) | Shape labelvec: (100, 3)
+Shape inputData: (100, 1170, 1025)
+Shape labelData: (100, 1170, 3)
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[   0 2342]
+ [   0  610]]
+The best cut-off value is: 0.53
+Training Metrics Interface1, Epoch:0  ValAcc: 0.20663956639566394 specScore: 0.00% presScore: 20.66% recallScore: 100.00% F1Score: 34.25% MCC: 0.00% AUC: 47.96% AP: 19.30%
+Training Metrics DYNA_q,  pcc: -0.14%, pvalue: 93.93%
+Training Metrics RSA_q,  pcc: -0.45%, pvalue: 80.80%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1959  383]
+ [ 506  104]]
+The best cut-off value is: 0.53
+Training Metrics Interface1, Epoch:1  ValAcc: 0.6988482384823849 specScore: 83.65% presScore: 21.36% recallScore: 17.05% F1Score: 18.96% MCC: 0.76% AUC: 50.74% AP: 21.18%
+Training Metrics DYNA_q,  pcc: -2.48%, pvalue: 17.88%
+Training Metrics RSA_q,  pcc: -1.74%, pvalue: 34.46%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[2022  320]
+ [ 517   93]]
+The best cut-off value is: 0.52
+Training Metrics Interface1, Epoch:2  ValAcc: 0.7164634146341463 specScore: 86.34% presScore: 22.52% recallScore: 15.25% F1Score: 18.18% MCC: 1.85% AUC: 50.76% AP: 21.39%
+Training Metrics DYNA_q,  pcc: 0.87%, pvalue: 63.66%
+Training Metrics RSA_q,  pcc: -0.72%, pvalue: 69.76%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1919  423]
+ [ 501  109]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:3  ValAcc: 0.6869918699186992 specScore: 81.94% presScore: 20.49% recallScore: 17.87% F1Score: 19.09% MCC: -0.20% AUC: 50.74% AP: 21.35%
+Training Metrics DYNA_q,  pcc: 5.60%, pvalue: 0.23%
+Training Metrics RSA_q,  pcc: -3.84%, pvalue: 3.71%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1881  461]
+ [ 479  131]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:4  ValAcc: 0.6815718157181572 specScore: 80.32% presScore: 22.13% recallScore: 21.48% F1Score: 21.80% MCC: 1.81% AUC: 50.68% AP: 21.47%
+Training Metrics DYNA_q,  pcc: 10.55%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -6.99%, pvalue: 0.01%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1869  473]
+ [ 470  140]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:5  ValAcc: 0.6805555555555556 specScore: 79.80% presScore: 22.84% recallScore: 22.95% F1Score: 22.89% MCC: 2.75% AUC: 50.35% AP: 21.32%
+Training Metrics DYNA_q,  pcc: 13.04%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -8.06%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1914  428]
+ [ 484  126]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:6  ValAcc: 0.6910569105691057 specScore: 81.73% presScore: 22.74% recallScore: 20.66% F1Score: 21.65% MCC: 2.47% AUC: 49.34% AP: 21.17%
+Training Metrics DYNA_q,  pcc: 14.69%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -8.80%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1863  479]
+ [ 490  120]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:7  ValAcc: 0.6717479674796748 specScore: 79.55% presScore: 20.03% recallScore: 19.67% F1Score: 19.85% MCC: -0.79% AUC: 48.71% AP: 21.09%
+Training Metrics DYNA_q,  pcc: 15.77%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -9.92%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1849  493]
+ [ 479  131]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:8  ValAcc: 0.6707317073170732 specScore: 78.95% presScore: 20.99% recallScore: 21.48% F1Score: 21.23% MCC: 0.42% AUC: 47.99% AP: 21.34%
+Training Metrics DYNA_q,  pcc: 18.36%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -10.37%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1840  502]
+ [ 477  133]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:9  ValAcc: 0.6683604336043361 specScore: 78.57% presScore: 20.94% recallScore: 21.80% F1Score: 21.37% MCC: 0.36% AUC: 47.02% AP: 20.57%
+Training Metrics DYNA_q,  pcc: 18.23%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -10.05%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1761  581]
+ [ 470  140]]
+The best cut-off value is: 0.51
+Training Metrics Interface1, Epoch:10  ValAcc: 0.643970189701897 specScore: 75.19% presScore: 19.42% recallScore: 22.95% F1Score: 21.04% MCC: -1.75% AUC: 46.23% AP: 19.68%
+Training Metrics DYNA_q,  pcc: 13.62%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -9.08%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1649  693]
+ [ 453  157]]
+The best cut-off value is: 0.52
+Training Metrics Interface1, Epoch:11  ValAcc: 0.6117886178861789 specScore: 70.41% presScore: 18.47% recallScore: 25.74% F1Score: 21.51% MCC: -3.44% AUC: 45.75% AP: 19.20%
+Training Metrics DYNA_q,  pcc: 4.76%, pvalue: 0.97%
+Training Metrics RSA_q,  pcc: -8.18%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1671  671]
+ [ 456  154]]
+The best cut-off value is: 0.53
+Training Metrics Interface1, Epoch:12  ValAcc: 0.6182249322493225 specScore: 71.35% presScore: 18.67% recallScore: 25.25% F1Score: 21.46% MCC: -3.07% AUC: 45.88% AP: 19.35%
+Training Metrics DYNA_q,  pcc: -7.46%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -6.38%, pvalue: 0.05%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1602  740]
+ [ 439  171]]
+The best cut-off value is: 0.53
+Training Metrics Interface1, Epoch:13  ValAcc: 0.600609756097561 specScore: 68.40% presScore: 18.77% recallScore: 28.03% F1Score: 22.49% MCC: -3.12% AUC: 46.28% AP: 19.52%
+Training Metrics DYNA_q,  pcc: -17.48%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -4.24%, pvalue: 2.14%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1588  754]
+ [ 428  182]]
+The best cut-off value is: 0.54
+Training Metrics Interface1, Epoch:14  ValAcc: 0.5995934959349594 specScore: 67.81% presScore: 19.44% recallScore: 29.84% F1Score: 23.54% MCC: -2.05% AUC: 46.71% AP: 19.65%
+Training Metrics DYNA_q,  pcc: -22.79%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -2.25%, pvalue: 22.23%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1594  748]
+ [ 422  188]]
+The best cut-off value is: 0.55
+Training Metrics Interface1, Epoch:15  ValAcc: 0.6036585365853658 specScore: 68.06% presScore: 20.09% recallScore: 30.82% F1Score: 24.32% MCC: -0.97% AUC: 47.14% AP: 20.08%
+Training Metrics DYNA_q,  pcc: -25.61%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: -0.23%, pvalue: 89.89%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1605  737]
+ [ 421  189]]
+The best cut-off value is: 0.55
+Training Metrics Interface1, Epoch:16  ValAcc: 0.6077235772357723 specScore: 68.53% presScore: 20.41% recallScore: 30.98% F1Score: 24.61% MCC: -0.42% AUC: 47.69% AP: 20.71%
+Training Metrics DYNA_q,  pcc: -25.48%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 2.00%, pvalue: 27.71%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1574  768]
+ [ 413  197]]
+The best cut-off value is: 0.56
+Training Metrics Interface1, Epoch:17  ValAcc: 0.5999322493224932 specScore: 67.21% presScore: 20.41% recallScore: 32.30% F1Score: 25.02% MCC: -0.43% AUC: 47.95% AP: 21.37%
+Training Metrics DYNA_q,  pcc: -23.22%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 4.06%, pvalue: 2.74%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1615  727]
+ [ 427  183]]
+The best cut-off value is: 0.56
+Training Metrics Interface1, Epoch:18  ValAcc: 0.6090785907859079 specScore: 68.96% presScore: 20.11% recallScore: 30.00% F1Score: 24.08% MCC: -0.91% AUC: 48.21% AP: 22.23%
+Training Metrics DYNA_q,  pcc: -19.07%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 6.37%, pvalue: 0.05%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1595  747]
+ [ 417  193]]
+The best cut-off value is: 0.57
+Training Metrics Interface1, Epoch:19  ValAcc: 0.6056910569105691 specScore: 68.10% presScore: 20.53% recallScore: 31.64% F1Score: 24.90% MCC: -0.22% AUC: 48.60% AP: 23.15%
+Training Metrics DYNA_q,  pcc: -13.09%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 9.26%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1631  711]
+ [ 415  195]]
+The best cut-off value is: 0.57
+Training Metrics Interface1, Epoch:20  ValAcc: 0.6185636856368564 specScore: 69.64% presScore: 21.52% recallScore: 31.97% F1Score: 25.73% MCC: 1.41% AUC: 49.12% AP: 23.91%
+Training Metrics DYNA_q,  pcc: -6.36%, pvalue: 0.05%
+Training Metrics RSA_q,  pcc: 12.06%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1627  715]
+ [ 419  191]]
+The best cut-off value is: 0.58
+Training Metrics Interface1, Epoch:21  ValAcc: 0.6158536585365854 specScore: 69.47% presScore: 21.08% recallScore: 31.31% F1Score: 25.20% MCC: 0.69% AUC: 49.53% AP: 24.22%
+Training Metrics DYNA_q,  pcc: -0.16%, pvalue: 93.28%
+Training Metrics RSA_q,  pcc: 14.18%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1658  684]
+ [ 419  191]]
+The best cut-off value is: 0.58
+Training Metrics Interface1, Epoch:22  ValAcc: 0.6263550135501355 specScore: 70.79% presScore: 21.83% recallScore: 31.31% F1Score: 25.72% MCC: 1.87% AUC: 50.03% AP: 24.27%
+Training Metrics DYNA_q,  pcc: 4.21%, pvalue: 2.23%
+Training Metrics RSA_q,  pcc: 15.69%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1715  627]
+ [ 425  185]]
+The best cut-off value is: 0.58
+Training Metrics Interface1, Epoch:23  ValAcc: 0.6436314363143631 specScore: 73.23% presScore: 22.78% recallScore: 30.33% F1Score: 26.02% MCC: 3.22% AUC: 50.46% AP: 23.82%
+Training Metrics DYNA_q,  pcc: 7.59%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 17.02%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1753  589]
+ [ 432  178]]
+The best cut-off value is: 0.58
+Training Metrics Interface1, Epoch:24  ValAcc: 0.6541327913279132 specScore: 74.85% presScore: 23.21% recallScore: 29.18% F1Score: 25.85% MCC: 3.72% AUC: 50.90% AP: 23.84%
+Training Metrics DYNA_q,  pcc: 10.22%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 18.53%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1734  608]
+ [ 429  181]]
+The best cut-off value is: 0.58
+Training Metrics Interface1, Epoch:25  ValAcc: 0.6487127371273713 specScore: 74.04% presScore: 22.94% recallScore: 29.67% F1Score: 25.88% MCC: 3.40% AUC: 51.56% AP: 24.11%
+Training Metrics DYNA_q,  pcc: 12.94%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 20.44%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1746  596]
+ [ 422  188]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:26  ValAcc: 0.6551490514905149 specScore: 74.55% presScore: 23.98% recallScore: 30.82% F1Score: 26.97% MCC: 4.92% AUC: 52.85% AP: 24.44%
+Training Metrics DYNA_q,  pcc: 15.93%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 22.59%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1776  566]
+ [ 422  188]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:27  ValAcc: 0.6653116531165312 specScore: 75.83% presScore: 24.93% recallScore: 30.82% F1Score: 27.57% MCC: 6.18% AUC: 53.73% AP: 25.04%
+Training Metrics DYNA_q,  pcc: 19.03%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 24.51%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1841  501]
+ [ 438  172]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:28  ValAcc: 0.681910569105691 specScore: 78.61% presScore: 25.56% recallScore: 28.20% F1Score: 26.81% MCC: 6.57% AUC: 54.60% AP: 25.60%
+Training Metrics DYNA_q,  pcc: 22.76%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 25.85%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1851  491]
+ [ 428  182]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:29  ValAcc: 0.6886856368563685 specScore: 79.04% presScore: 27.04% recallScore: 29.84% F1Score: 28.37% MCC: 8.56% AUC: 55.06% AP: 26.08%
+Training Metrics DYNA_q,  pcc: 27.13%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 26.49%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1851  491]
+ [ 427  183]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:30  ValAcc: 0.6890243902439024 specScore: 79.04% presScore: 27.15% recallScore: 30.00% F1Score: 28.50% MCC: 8.72% AUC: 55.38% AP: 26.09%
+Training Metrics DYNA_q,  pcc: 31.27%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 26.56%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1870  472]
+ [ 424  186]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:31  ValAcc: 0.6964769647696477 specScore: 79.85% presScore: 28.27% recallScore: 30.49% F1Score: 29.34% MCC: 10.06% AUC: 55.64% AP: 26.15%
+Training Metrics DYNA_q,  pcc: 34.88%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 26.18%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1868  474]
+ [ 427  183]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:32  ValAcc: 0.6947831978319783 specScore: 79.76% presScore: 27.85% recallScore: 30.00% F1Score: 28.89% MCC: 9.50% AUC: 55.90% AP: 26.16%
+Training Metrics DYNA_q,  pcc: 38.14%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 25.68%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1882  460]
+ [ 427  183]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:33  ValAcc: 0.6995257452574526 specScore: 80.36% presScore: 28.46% recallScore: 30.00% F1Score: 29.21% MCC: 10.16% AUC: 56.22% AP: 26.28%
+Training Metrics DYNA_q,  pcc: 40.69%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 25.07%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1906  436]
+ [ 435  175]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:34  ValAcc: 0.7049457994579946 specScore: 81.38% presScore: 28.64% recallScore: 28.69% F1Score: 28.67% MCC: 10.07% AUC: 56.57% AP: 26.50%
+Training Metrics DYNA_q,  pcc: 42.65%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 24.32%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1887  455]
+ [ 426  184]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:35  ValAcc: 0.7015582655826558 specScore: 80.57% presScore: 28.79% recallScore: 30.16% F1Score: 29.46% MCC: 10.56% AUC: 56.92% AP: 26.71%
+Training Metrics DYNA_q,  pcc: 44.29%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 23.55%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1853  489]
+ [ 419  191]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:36  ValAcc: 0.6924119241192412 specScore: 79.12% presScore: 28.09% recallScore: 31.31% F1Score: 29.61% MCC: 10.03% AUC: 57.15% AP: 26.78%
+Training Metrics DYNA_q,  pcc: 45.52%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 22.91%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1901  441]
+ [ 432  178]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:37  ValAcc: 0.7042682926829268 specScore: 81.17% presScore: 28.76% recallScore: 29.18% F1Score: 28.97% MCC: 10.29% AUC: 57.35% AP: 26.90%
+Training Metrics DYNA_q,  pcc: 46.56%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 22.34%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1915  427]
+ [ 438  172]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:38  ValAcc: 0.7069783197831978 specScore: 81.77% presScore: 28.71% recallScore: 28.20% F1Score: 28.45% MCC: 10.03% AUC: 57.51% AP: 27.03%
+Training Metrics DYNA_q,  pcc: 47.89%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 21.79%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1848  494]
+ [ 419  191]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:39  ValAcc: 0.6907181571815718 specScore: 78.91% presScore: 27.88% recallScore: 31.31% F1Score: 29.50% MCC: 9.80% AUC: 57.63% AP: 26.97%
+Training Metrics DYNA_q,  pcc: 49.02%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 21.35%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1805  537]
+ [ 403  207]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:40  ValAcc: 0.6815718157181572 specScore: 77.07% presScore: 27.82% recallScore: 33.93% F1Score: 30.58% MCC: 10.26% AUC: 57.66% AP: 26.79%
+Training Metrics DYNA_q,  pcc: 49.94%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 20.96%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1874  468]
+ [ 431  179]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:41  ValAcc: 0.6954607046070461 specScore: 80.02% presScore: 27.67% recallScore: 29.34% F1Score: 28.48% MCC: 9.16% AUC: 57.75% AP: 26.71%
+Training Metrics DYNA_q,  pcc: 50.63%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 20.70%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1910  432]
+ [ 440  170]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:42  ValAcc: 0.7046070460704607 specScore: 81.55% presScore: 28.24% recallScore: 27.87% F1Score: 28.05% MCC: 9.47% AUC: 57.84% AP: 26.69%
+Training Metrics DYNA_q,  pcc: 51.21%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 20.52%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1871  471]
+ [ 430  180]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:43  ValAcc: 0.6947831978319783 specScore: 79.89% presScore: 27.65% recallScore: 29.51% F1Score: 28.55% MCC: 9.18% AUC: 57.89% AP: 26.61%
+Training Metrics DYNA_q,  pcc: 51.48%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 20.29%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1891  451]
+ [ 433  177]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:44  ValAcc: 0.7005420054200542 specScore: 80.74% presScore: 28.18% recallScore: 29.02% F1Score: 28.59% MCC: 9.66% AUC: 57.98% AP: 26.56%
+Training Metrics DYNA_q,  pcc: 51.41%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 20.10%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1918  424]
+ [ 445  165]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:45  ValAcc: 0.7056233062330624 specScore: 81.90% presScore: 28.01% recallScore: 27.05% F1Score: 27.52% MCC: 9.06% AUC: 58.02% AP: 26.49%
+Training Metrics DYNA_q,  pcc: 51.29%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 20.01%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1880  462]
+ [ 433  177]]
+The best cut-off value is: 0.59
+Training Metrics Interface1, Epoch:46  ValAcc: 0.6968157181571816 specScore: 80.27% presScore: 27.70% recallScore: 29.02% F1Score: 28.34% MCC: 9.13% AUC: 58.01% AP: 26.33%
+Training Metrics DYNA_q,  pcc: 51.16%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.91%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1819  523]
+ [ 418  192]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:47  ValAcc: 0.6812330623306233 specScore: 77.67% presScore: 26.85% recallScore: 31.48% F1Score: 28.98% MCC: 8.64% AUC: 58.03% AP: 26.05%
+Training Metrics DYNA_q,  pcc: 51.14%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.79%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1884  458]
+ [ 438  172]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:48  ValAcc: 0.6964769647696477 specScore: 80.44% presScore: 27.30% recallScore: 28.20% F1Score: 27.74% MCC: 8.54% AUC: 58.11% AP: 25.96%
+Training Metrics DYNA_q,  pcc: 51.25%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.64%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1873  469]
+ [ 438  172]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:49  ValAcc: 0.6927506775067751 specScore: 79.97% presScore: 26.83% recallScore: 28.20% F1Score: 27.50% MCC: 8.02% AUC: 58.14% AP: 25.95%
+Training Metrics DYNA_q,  pcc: 51.29%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.57%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1914  428]
+ [ 449  161]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:50  ValAcc: 0.7029132791327913 specScore: 81.73% presScore: 27.33% recallScore: 26.39% F1Score: 26.86% MCC: 8.23% AUC: 58.20% AP: 25.96%
+Training Metrics DYNA_q,  pcc: 51.41%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.49%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1923  419]
+ [ 452  158]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:51  ValAcc: 0.7049457994579946 specScore: 82.11% presScore: 27.38% recallScore: 25.90% F1Score: 26.62% MCC: 8.18% AUC: 58.23% AP: 25.97%
+Training Metrics DYNA_q,  pcc: 51.54%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.41%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1872  470]
+ [ 439  171]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:52  ValAcc: 0.6920731707317073 specScore: 79.93% presScore: 26.68% recallScore: 28.03% F1Score: 27.34% MCC: 7.82% AUC: 58.24% AP: 25.98%
+Training Metrics DYNA_q,  pcc: 51.48%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.35%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1887  455]
+ [ 445  165]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:53  ValAcc: 0.6951219512195121 specScore: 80.57% presScore: 26.61% recallScore: 27.05% F1Score: 26.83% MCC: 7.58% AUC: 58.25% AP: 25.98%
+Training Metrics DYNA_q,  pcc: 51.55%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.34%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1905  437]
+ [ 449  161]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:54  ValAcc: 0.6998644986449865 specScore: 81.34% presScore: 26.92% recallScore: 26.39% F1Score: 26.66% MCC: 7.79% AUC: 58.29% AP: 25.95%
+Training Metrics DYNA_q,  pcc: 51.66%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.32%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1825  517]
+ [ 432  178]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:55  ValAcc: 0.6785230352303523 specScore: 77.92% presScore: 25.61% recallScore: 29.18% F1Score: 27.28% MCC: 6.78% AUC: 58.32% AP: 25.96%
+Training Metrics DYNA_q,  pcc: 51.82%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.27%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1843  499]
+ [ 437  173]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:56  ValAcc: 0.6829268292682927 specScore: 78.69% presScore: 25.74% recallScore: 28.36% F1Score: 26.99% MCC: 6.81% AUC: 58.36% AP: 25.96%
+Training Metrics DYNA_q,  pcc: 51.89%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.27%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1855  487]
+ [ 437  173]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:57  ValAcc: 0.6869918699186992 specScore: 79.21% presScore: 26.21% recallScore: 28.36% F1Score: 27.24% MCC: 7.35% AUC: 58.36% AP: 25.95%
+Training Metrics DYNA_q,  pcc: 52.00%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.26%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1871  471]
+ [ 438  172]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:58  ValAcc: 0.6920731707317073 specScore: 79.89% presScore: 26.75% recallScore: 28.20% F1Score: 27.45% MCC: 7.93% AUC: 58.37% AP: 25.93%
+Training Metrics DYNA_q,  pcc: 52.06%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.20%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1882  460]
+ [ 442  168]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:59  ValAcc: 0.6944444444444444 specScore: 80.36% presScore: 26.75% recallScore: 27.54% F1Score: 27.14% MCC: 7.82% AUC: 58.36% AP: 25.87%
+Training Metrics DYNA_q,  pcc: 52.21%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.16%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1887  455]
+ [ 441  169]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:60  ValAcc: 0.6964769647696477 specScore: 80.57% presScore: 27.08% recallScore: 27.70% F1Score: 27.39% MCC: 8.21% AUC: 58.37% AP: 25.87%
+Training Metrics DYNA_q,  pcc: 52.32%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.13%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[1894  448]
+ [ 437  173]]
+The best cut-off value is: 0.60
+Training Metrics Interface1, Epoch:61  ValAcc: 0.7002032520325203 specScore: 80.87% presScore: 27.86% recallScore: 28.36% F1Score: 28.11% MCC: 9.17% AUC: 58.41% AP: 25.91%
+Training Metrics DYNA_q,  pcc: 52.36%, pvalue: 0.00%
+Training Metrics RSA_q,  pcc: 19.08%, pvalue: 0.00%
+The chosen labels are: ['p_interface', 'rel_surf_acc', 'prob_sheet', 'prob_helix', 'prob_coil']
+
+## Starting Training & Testing;; @@ trained on: ../data/prepared_biolip_win_p_training.csv at: 24-05-2024#20:43:10 @@
+## tf-version: 2.15.0|| float_type: float64
+The chosen labels are: ['p_interface', 'rel_surf_acc', 'prob_sheet', 'prob_helix', 'prob_coil']
+
+## Starting Training & Testing;; @@ trained on: ../data/prepared_biolip_win_p_training.csv at: 25-05-2024#17:04:27 @@
+## tf-version: 2.15.0|| float_type: float64

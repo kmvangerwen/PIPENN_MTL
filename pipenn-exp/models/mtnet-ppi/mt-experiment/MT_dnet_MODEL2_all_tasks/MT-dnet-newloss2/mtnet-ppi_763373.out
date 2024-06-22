@@ -1,0 +1,901 @@
+preparing computation at Sun Jun  2 18:27:58 CEST 2024 ...
+PIPENN_ENV is: reza-tfg-2.14
+executing prediction at Sun Jun  2 18:27:58 CEST 2024 ...
+2024-06-02 18:28:06.438723: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-06-02 18:28:06.438775: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-06-02 18:28:06.438782: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-06-02 18:28:06.636799: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE4.1 SSE4.2 AVX AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-06-02 18:28:17.512921: E tensorflow/compiler/xla/stream_executor/cuda/cuda_driver.cc:268] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2024-06-02 18:28:17.513112: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:168] retrieving CUDA diagnostic information for host: node009
+2024-06-02 18:28:17.513118: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:175] hostname: node009
+2024-06-02 18:28:17.513251: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:199] libcuda reported version is: 530.30.2
+2024-06-02 18:28:17.513265: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:203] kernel reported version is: 530.30.2
+2024-06-02 18:28:17.513269: I tensorflow/compiler/xla/stream_executor/cuda/cuda_diagnostics.cc:309] kernel version seems to match DSO: 530.30.2
+PYTHONPATH: ['/scistor/informatica/kgn950/pipenn-exp/mtnet-ppi', '/scistor/informatica/kgn950/pipenn-exp/utils', '/scistor/informatica/kgn950/pipenn-exp/config', '/scistor/informatica/kgn950/pipenn-exp/ann-ppi', '/scistor/informatica/kgn950/pipenn-exp/rnn-ppi', '/scistor/informatica/kgn950/pipenn-exp/dnet-ppi', '/scistor/informatica/kgn950/pipenn-exp/rnet-ppi', '/scistor/informatica/kgn950/pipenn-exp/unet-ppi', '/scistor/informatica/kgn950/pipenn-exp/cnn-rnn-ppi', '/scistor/informatica/kgn950/pipenn-exp/ensnet-ppi', '/scistor/informatica/kgn950/pipenn-exp', '/scistor/informatica/kgn950/pipenn-exp/mtnet-ppi', '/scistor/informatica/rhu300/miniconda3/envs/reza-tfg-2.14/lib/python311.zip', '/scistor/informatica/rhu300/miniconda3/envs/reza-tfg-2.14/lib/python3.11', '/scistor/informatica/rhu300/miniconda3/envs/reza-tfg-2.14/lib/python3.11/lib-dynload', '/scistor/informatica/rhu300/miniconda3/envs/reza-tfg-2.14/lib/python3.11/site-packages']
+Updated sys.path: ['/scistor/informatica/kgn950/pipenn-exp/mtnet-ppi', '/scistor/informatica/kgn950/pipenn-exp/utils', '/scistor/informatica/kgn950/pipenn-exp/config', '/scistor/informatica/kgn950/pipenn-exp/ann-ppi', '/scistor/informatica/kgn950/pipenn-exp/rnn-ppi', '/scistor/informatica/kgn950/pipenn-exp/dnet-ppi', '/scistor/informatica/kgn950/pipenn-exp/rnet-ppi', '/scistor/informatica/kgn950/pipenn-exp/unet-ppi', '/scistor/informatica/kgn950/pipenn-exp/cnn-rnn-ppi', '/scistor/informatica/kgn950/pipenn-exp/ensnet-ppi', '/scistor/informatica/kgn950/pipenn-exp', '/scistor/informatica/kgn950/pipenn-exp/mtnet-ppi', '/scistor/informatica/rhu300/miniconda3/envs/reza-tfg-2.14/lib/python311.zip', '/scistor/informatica/rhu300/miniconda3/envs/reza-tfg-2.14/lib/python3.11', '/scistor/informatica/rhu300/miniconda3/envs/reza-tfg-2.14/lib/python3.11/lib-dynload', '/scistor/informatica/rhu300/miniconda3/envs/reza-tfg-2.14/lib/python3.11/site-packages', '/Users/kikivangerwen/Documents/PIPENN/pipenn-exp/utils']
+$$$$$$ Please install GPU version of TF
+The chosen labels are: ['p_interface', 'rel_surf_acc', 'prob_sheet', 'prob_helix', 'prob_coil']
+setCondParams, one hot is false
+:) setExprDatasetFiles
+Batch size: 8
+LABEL_DIM 5
+inputshape (1170, 1025)
+Model: "model"
+__________________________________________________________________________________________________
+ Layer (type)                Output Shape                 Param #   Connected to                  
+==================================================================================================
+ input (InputLayer)          [(None, 1170, 1025)]         0         []                            
+                                                                                                  
+ conv1d (Conv1D)             (None, 1170, 64)             459200    ['input[0][0]']               
+                                                                                                  
+ dropout (Dropout)           (None, 1170, 64)             0         ['conv1d[0][0]']              
+                                                                                                  
+ batch_normalization (Batch  (None, 1170, 64)             256       ['dropout[0][0]']             
+ Normalization)                                                                                   
+                                                                                                  
+ p_re_lu (PReLU)             (None, 1170, 64)             74880     ['batch_normalization[0][0]'] 
+                                                                                                  
+ conv1d_1 (Conv1D)           (None, 1170, 128)            57344     ['p_re_lu[0][0]']             
+                                                                                                  
+ dropout_1 (Dropout)         (None, 1170, 128)            0         ['conv1d_1[0][0]']            
+                                                                                                  
+ batch_normalization_1 (Bat  (None, 1170, 128)            512       ['dropout_1[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_1 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_1[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_2 (Conv1D)           (None, 1170, 128)            114688    ['p_re_lu_1[0][0]']           
+                                                                                                  
+ dropout_2 (Dropout)         (None, 1170, 128)            0         ['conv1d_2[0][0]']            
+                                                                                                  
+ batch_normalization_2 (Bat  (None, 1170, 128)            512       ['dropout_2[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_2 (PReLU)           (None, 1170, 128)            149760    ['batch_normalization_2[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_3 (Conv1D)           (None, 1170, 64)             57344     ['p_re_lu_2[0][0]']           
+                                                                                                  
+ dropout_3 (Dropout)         (None, 1170, 64)             0         ['conv1d_3[0][0]']            
+                                                                                                  
+ batch_normalization_3 (Bat  (None, 1170, 64)             256       ['dropout_3[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_3 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_3[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_4 (Conv1D)           (None, 1170, 64)             28672     ['p_re_lu_3[0][0]']           
+                                                                                                  
+ dropout_4 (Dropout)         (None, 1170, 64)             0         ['conv1d_4[0][0]']            
+                                                                                                  
+ batch_normalization_4 (Bat  (None, 1170, 64)             256       ['dropout_4[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_4 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_4[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_5 (Conv1D)           (None, 1170, 64)             28672     ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_7 (Conv1D)           (None, 1170, 64)             28672     ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_8 (Conv1D)           (None, 1170, 64)             28672     ['p_re_lu_4[0][0]']           
+                                                                                                  
+ conv1d_9 (Conv1D)           (None, 1170, 64)             28672     ['p_re_lu_4[0][0]']           
+                                                                                                  
+ dropout_5 (Dropout)         (None, 1170, 64)             0         ['conv1d_5[0][0]']            
+                                                                                                  
+ conv1d_6 (Conv1D)           (None, 1170, 64)             28672     ['p_re_lu_4[0][0]']           
+                                                                                                  
+ dropout_7 (Dropout)         (None, 1170, 64)             0         ['conv1d_7[0][0]']            
+                                                                                                  
+ dropout_8 (Dropout)         (None, 1170, 64)             0         ['conv1d_8[0][0]']            
+                                                                                                  
+ dropout_9 (Dropout)         (None, 1170, 64)             0         ['conv1d_9[0][0]']            
+                                                                                                  
+ batch_normalization_5 (Bat  (None, 1170, 64)             256       ['dropout_5[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ dropout_6 (Dropout)         (None, 1170, 64)             0         ['conv1d_6[0][0]']            
+                                                                                                  
+ batch_normalization_7 (Bat  (None, 1170, 64)             256       ['dropout_7[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_8 (Bat  (None, 1170, 64)             256       ['dropout_8[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ batch_normalization_9 (Bat  (None, 1170, 64)             256       ['dropout_9[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_5 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_5[0][0]'
+                                                                    ]                             
+                                                                                                  
+ batch_normalization_6 (Bat  (None, 1170, 64)             256       ['dropout_6[0][0]']           
+ chNormalization)                                                                                 
+                                                                                                  
+ p_re_lu_7 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_7[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_8 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_8[0][0]'
+                                                                    ]                             
+                                                                                                  
+ p_re_lu_9 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_9[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_10 (Conv1D)          (None, 1170, 32)             14336     ['p_re_lu_5[0][0]']           
+                                                                                                  
+ p_re_lu_6 (PReLU)           (None, 1170, 64)             74880     ['batch_normalization_6[0][0]'
+                                                                    ]                             
+                                                                                                  
+ conv1d_12 (Conv1D)          (None, 1170, 32)             14336     ['p_re_lu_7[0][0]']           
+                                                                                                  
+ conv1d_13 (Conv1D)          (None, 1170, 32)             14336     ['p_re_lu_8[0][0]']           
+                                                                                                  
+ conv1d_14 (Conv1D)          (None, 1170, 32)             14336     ['p_re_lu_9[0][0]']           
+                                                                                                  
+ dropout_10 (Dropout)        (None, 1170, 32)             0         ['conv1d_10[0][0]']           
+                                                                                                  
+ conv1d_11 (Conv1D)          (None, 1170, 32)             14336     ['p_re_lu_6[0][0]']           
+                                                                                                  
+ dropout_12 (Dropout)        (None, 1170, 32)             0         ['conv1d_12[0][0]']           
+                                                                                                  
+ dropout_13 (Dropout)        (None, 1170, 32)             0         ['conv1d_13[0][0]']           
+                                                                                                  
+ dropout_14 (Dropout)        (None, 1170, 32)             0         ['conv1d_14[0][0]']           
+                                                                                                  
+ batch_normalization_10 (Ba  (None, 1170, 32)             128       ['dropout_10[0][0]']          
+ tchNormalization)                                                                                
+                                                                                                  
+ dropout_11 (Dropout)        (None, 1170, 32)             0         ['conv1d_11[0][0]']           
+                                                                                                  
+ batch_normalization_12 (Ba  (None, 1170, 32)             128       ['dropout_12[0][0]']          
+ tchNormalization)                                                                                
+                                                                                                  
+ batch_normalization_13 (Ba  (None, 1170, 32)             128       ['dropout_13[0][0]']          
+ tchNormalization)                                                                                
+                                                                                                  
+ batch_normalization_14 (Ba  (None, 1170, 32)             128       ['dropout_14[0][0]']          
+ tchNormalization)                                                                                
+                                                                                                  
+ p_re_lu_10 (PReLU)          (None, 1170, 32)             37440     ['batch_normalization_10[0][0]
+                                                                    ']                            
+                                                                                                  
+ batch_normalization_11 (Ba  (None, 1170, 32)             128       ['dropout_11[0][0]']          
+ tchNormalization)                                                                                
+                                                                                                  
+ p_re_lu_12 (PReLU)          (None, 1170, 32)             37440     ['batch_normalization_12[0][0]
+                                                                    ']                            
+                                                                                                  
+ p_re_lu_13 (PReLU)          (None, 1170, 32)             37440     ['batch_normalization_13[0][0]
+                                                                    ']                            
+                                                                                                  
+ p_re_lu_14 (PReLU)          (None, 1170, 32)             37440     ['batch_normalization_14[0][0]
+                                                                    ']                            
+                                                                                                  
+ time_distributed (TimeDist  (None, 1170, 32)             1056      ['p_re_lu_10[0][0]']          
+ ributed)                                                                                         
+                                                                                                  
+ p_re_lu_11 (PReLU)          (None, 1170, 32)             37440     ['batch_normalization_11[0][0]
+                                                                    ']                            
+                                                                                                  
+ time_distributed_2 (TimeDi  (None, 1170, 32)             1056      ['p_re_lu_12[0][0]']          
+ stributed)                                                                                       
+                                                                                                  
+ time_distributed_3 (TimeDi  (None, 1170, 32)             1056      ['p_re_lu_13[0][0]']          
+ stributed)                                                                                       
+                                                                                                  
+ time_distributed_4 (TimeDi  (None, 1170, 32)             1056      ['p_re_lu_14[0][0]']          
+ stributed)                                                                                       
+                                                                                                  
+ time_distributed_5 (TimeDi  (None, 1170, 32)             1056      ['time_distributed[0][0]']    
+ stributed)                                                                                       
+                                                                                                  
+ time_distributed_1 (TimeDi  (None, 1170, 32)             1056      ['p_re_lu_11[0][0]']          
+ stributed)                                                                                       
+                                                                                                  
+ time_distributed_7 (TimeDi  (None, 1170, 32)             1056      ['time_distributed_2[0][0]']  
+ stributed)                                                                                       
+                                                                                                  
+ time_distributed_8 (TimeDi  (None, 1170, 32)             1056      ['time_distributed_3[0][0]']  
+ stributed)                                                                                       
+                                                                                                  
+ time_distributed_9 (TimeDi  (None, 1170, 32)             1056      ['time_distributed_4[0][0]']  
+ stributed)                                                                                       
+                                                                                                  
+ time_distributed_10 (TimeD  (None, 1170, 16)             528       ['time_distributed_5[0][0]']  
+ istributed)                                                                                      
+                                                                                                  
+ time_distributed_6 (TimeDi  (None, 1170, 32)             1056      ['time_distributed_1[0][0]']  
+ stributed)                                                                                       
+                                                                                                  
+ concatenate (Concatenate)   (None, 1170, 96)             0         ['time_distributed_7[0][0]',  
+                                                                     'time_distributed_8[0][0]',  
+                                                                     'time_distributed_9[0][0]']  
+                                                                                                  
+ ppi (TimeDistributed)       (None, 1170, 1)              17        ['time_distributed_10[0][0]'] 
+                                                                                                  
+ rsa (TimeDistributed)       (None, 1170, 1)              33        ['time_distributed_6[0][0]']  
+                                                                                                  
+ SS3 (TimeDistributed)       (None, 1170, 3)              291       ['concatenate[0][0]']         
+                                                                                                  
+==================================================================================================
+Total params: 2033189 (15.51 MB)
+Trainable params: 2031333 (15.50 MB)
+Non-trainable params: 1856 (14.50 KB)
+__________________________________________________________________________________________________
+:) trainModel
+
+## Starting Training & Testing;; @@ trained on: ../data/prepared_biolip_win_p_training.csv at: 02-06-2024#18:28:25 @@
+:) trainKerasModel
+## tf-version: 2.14.0|| float_type: float64
+Shape featuresTable: (4392, 2) | Shape labelvec: (4392, 5)
+Shape inputData: (4392, 1170, 1025)
+Shape labelData: (4392, 1170, 5)
+truelabels (4392, 1170, 5)
+Shape featuresTable: (4392, 1170, 1025) | Shape labelvec: (4392, 1170, 5)
+2024-06-02 23:19:14.010552: W tensorflow/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 33703722000 exceeds 10% of free system memory.
+labelData.shape (4392, 1170, 5) | trainY.shape (3513, 1170, 5) | valY.shape (879, 1170, 5)
+:) trainKerasModel MULTI_TASK_MODEL
+:) ModelCheckPoint setValset
+mtloss_bce (None, 1170, 1) (None, 1170, 1)
+mtloss_mse (None, 1170, 1) (None, 1170, 1)
+mtloss_mse (None, 1170, 3) (None, 1170, 3)
+mtloss_bce (None, 1170, 1) (None, 1170, 1)
+mtloss_mse (None, 1170, 1) (None, 1170, 1)
+mtloss_mse (None, 1170, 3) (None, 1170, 3)
+mtloss_bce (None, 1170, 1) (None, 1170, 1)
+mtloss_mse (None, 1170, 1) (None, 1170, 1)
+mtloss_mse (None, 1170, 3) (None, 1170, 3)
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[    16 235315]
+ [     0  31958]]
+The best cut-off value is: 0.66
+Training Metrics ppi, Epoch:0  ValAcc: 0.11962332905581599 specScore: 0.01% presScore: 11.96% recallScore: 100.00% F1Score: 21.36% MCC: 0.29% AUC: 66.69% AP: 20.32%
+Training Metrics rsa,  pcc: 18.62%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 86.22%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[181788  53543]
+ [ 14188  17770]]
+The best cut-off value is: 0.73
+Training Metrics ppi, Epoch:1  ValAcc: 0.7466001219653633 specScore: 77.25% presScore: 24.92% recallScore: 55.60% F1Score: 34.41% MCC: 24.10% AUC: 72.96% AP: 27.83%
+Training Metrics rsa,  pcc: 16.31%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 87.25%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[206946  28385]
+ [ 18200  13758]]
+The best cut-off value is: 0.76
+Training Metrics ppi, Epoch:2  ValAcc: 0.82571299230421 specScore: 87.94% presScore: 32.65% recallScore: 43.05% F1Score: 37.13% MCC: 27.59% AUC: 76.34% AP: 31.53%
+Training Metrics rsa,  pcc: 24.76%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 87.64%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[206270  29061]
+ [ 17154  14804]]
+The best cut-off value is: 0.79
+Training Metrics ppi, Epoch:3  ValAcc: 0.8270972617653551 specScore: 87.65% presScore: 33.75% recallScore: 46.32% F1Score: 39.05% MCC: 29.76% AUC: 77.79% AP: 33.57%
+Training Metrics rsa,  pcc: 33.68%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 87.86%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[215756  19575]
+ [ 19932  12026]]
+The best cut-off value is: 0.79
+Training Metrics ppi, Epoch:4  ValAcc: 0.8521936929690335 specScore: 91.68% presScore: 38.06% recallScore: 37.63% F1Score: 37.84% MCC: 29.46% AUC: 78.32% AP: 34.39%
+Training Metrics rsa,  pcc: 40.41%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.02%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213473  21858]
+ [ 18841  13117]]
+The best cut-off value is: 0.80
+Training Metrics ppi, Epoch:5  ValAcc: 0.8477341005428581 specScore: 90.71% presScore: 37.50% recallScore: 41.04% F1Score: 39.19% MCC: 30.55% AUC: 78.72% AP: 35.13%
+Training Metrics rsa,  pcc: 42.05%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.06%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[216754  18577]
+ [ 19957  12001]]
+The best cut-off value is: 0.79
+Training Metrics ppi, Epoch:6  ValAcc: 0.8558339475249637 specScore: 92.11% presScore: 39.25% recallScore: 37.55% F1Score: 38.38% MCC: 30.23% AUC: 78.69% AP: 35.21%
+Training Metrics rsa,  pcc: 43.36%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.09%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213436  21895]
+ [ 18611  13347]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:7  ValAcc: 0.8484561654239419 specScore: 90.70% presScore: 37.87% recallScore: 41.76% F1Score: 39.72% MCC: 31.13% AUC: 78.76% AP: 35.55%
+Training Metrics rsa,  pcc: 44.11%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.14%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[214784  20547]
+ [ 19211  12747]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:8  ValAcc: 0.8512546344967432 specScore: 91.27% presScore: 38.29% recallScore: 39.89% F1Score: 39.07% MCC: 30.61% AUC: 78.68% AP: 35.33%
+Training Metrics rsa,  pcc: 41.67%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.03%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[222390  12941]
+ [ 22213   9745]]
+The best cut-off value is: 0.78
+Training Metrics ppi, Epoch:9  ValAcc: 0.8684794361159643 specScore: 94.50% presScore: 42.96% recallScore: 30.49% F1Score: 35.67% MCC: 29.10% AUC: 78.40% AP: 35.42%
+Training Metrics rsa,  pcc: 41.39%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 87.92%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[219053  16278]
+ [ 20898  11060]]
+The best cut-off value is: 0.76
+Training Metrics ppi, Epoch:10  ValAcc: 0.8609145905742474 specScore: 93.08% presScore: 40.46% recallScore: 34.61% F1Score: 37.30% MCC: 29.65% AUC: 78.04% AP: 35.13%
+Training Metrics rsa,  pcc: 41.30%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.11%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[207643  27688]
+ [ 17269  14689]]
+The best cut-off value is: 0.79
+Training Metrics ppi, Epoch:11  ValAcc: 0.8318037779332483 specScore: 88.23% presScore: 34.66% recallScore: 45.96% F1Score: 39.52% MCC: 30.38% AUC: 77.90% AP: 34.87%
+Training Metrics rsa,  pcc: 46.07%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.09%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[209298  26033]
+ [ 17822  14136]]
+The best cut-off value is: 0.82
+Training Metrics ppi, Epoch:12  ValAcc: 0.8359266561661722 specScore: 88.94% presScore: 35.19% recallScore: 44.23% F1Score: 39.20% MCC: 30.12% AUC: 77.92% AP: 34.97%
+Training Metrics rsa,  pcc: 43.45%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 87.94%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[221850  13481]
+ [ 22290   9668]]
+The best cut-off value is: 0.78
+Training Metrics ppi, Epoch:13  ValAcc: 0.8661710732577846 specScore: 94.27% presScore: 41.76% recallScore: 30.25% F1Score: 35.09% MCC: 28.29% AUC: 77.64% AP: 34.58%
+Training Metrics rsa,  pcc: 41.62%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.17%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[207903  27428]
+ [ 17645  14313]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:14  ValAcc: 0.8313697907508353 specScore: 88.34% presScore: 34.29% recallScore: 44.79% F1Score: 38.84% MCC: 29.61% AUC: 77.47% AP: 34.57%
+Training Metrics rsa,  pcc: 40.11%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.17%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[216805  18526]
+ [ 20187  11771]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:15  ValAcc: 0.8551642604072746 specScore: 92.13% presScore: 38.85% recallScore: 36.83% F1Score: 37.82% MCC: 29.64% AUC: 77.59% AP: 34.83%
+Training Metrics rsa,  pcc: 47.42%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.23%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217543  17788]
+ [ 20485  11473]]
+The best cut-off value is: 0.80
+Training Metrics ppi, Epoch:16  ValAcc: 0.856810418685393 specScore: 92.44% presScore: 39.21% recallScore: 35.90% F1Score: 37.48% MCC: 29.45% AUC: 77.48% AP: 34.67%
+Training Metrics rsa,  pcc: 42.31%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 87.82%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[212743  22588]
+ [ 19260  12698]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:17  ValAcc: 0.8434353826756806 specScore: 90.40% presScore: 35.99% recallScore: 39.73% F1Score: 37.77% MCC: 28.88% AUC: 77.18% AP: 34.15%
+Training Metrics rsa,  pcc: 49.90%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.24%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217694  17637]
+ [ 20876  11082]]
+The best cut-off value is: 0.79
+Training Metrics ppi, Epoch:18  ValAcc: 0.8559125141700556 specScore: 92.51% presScore: 38.59% recallScore: 34.68% F1Score: 36.53% MCC: 28.48% AUC: 77.19% AP: 34.32%
+Training Metrics rsa,  pcc: 49.65%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.16%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213001  22330]
+ [ 19047  12911]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:19  ValAcc: 0.8451975202870301 specScore: 90.51% presScore: 36.64% recallScore: 40.40% F1Score: 38.43% MCC: 29.64% AUC: 77.33% AP: 34.59%
+Training Metrics rsa,  pcc: 44.26%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.21%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[208782  26549]
+ [ 17944  14014]]
+The best cut-off value is: 0.83
+Training Metrics ppi, Epoch:20  ValAcc: 0.8335397266629004 specScore: 88.72% presScore: 34.55% recallScore: 43.85% F1Score: 38.65% MCC: 29.45% AUC: 77.21% AP: 34.31%
+Training Metrics rsa,  pcc: 41.56%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.21%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[227437   7894]
+ [ 25649   6309]]
+The best cut-off value is: 0.74
+Training Metrics ppi, Epoch:21  ValAcc: 0.8745066201751662 specScore: 96.65% presScore: 44.42% recallScore: 19.74% F1Score: 27.33% MCC: 23.70% AUC: 75.73% AP: 32.04%
+Training Metrics rsa,  pcc: 38.51%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.21%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[199428  35903]
+ [ 15652  16306]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:22  ValAcc: 0.8071188862990994 specScore: 84.74% presScore: 31.23% recallScore: 51.02% F1Score: 38.75% MCC: 29.27% AUC: 77.26% AP: 34.47%
+Training Metrics rsa,  pcc: 51.95%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.33%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[215271  20060]
+ [ 20176  11782]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:23  ValAcc: 0.8494663080036964 specScore: 91.48% presScore: 37.00% recallScore: 36.87% F1Score: 36.93% MCC: 28.39% AUC: 76.67% AP: 33.81%
+Training Metrics rsa,  pcc: 39.38%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.21%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[218235  17096]
+ [ 21370  10588]]
+The best cut-off value is: 0.80
+Training Metrics ppi, Epoch:24  ValAcc: 0.8560883538043091 specScore: 92.74% presScore: 38.25% recallScore: 33.13% F1Score: 35.51% MCC: 27.54% AUC: 76.69% AP: 33.52%
+Training Metrics rsa,  pcc: 48.79%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.15%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[221368  13963]
+ [ 24015   7943]]
+The best cut-off value is: 0.73
+Training Metrics ppi, Epoch:25  ValAcc: 0.8579140929854951 specScore: 94.07% presScore: 36.26% recallScore: 24.85% F1Score: 29.49% MCC: 22.38% AUC: 73.44% AP: 29.19%
+Training Metrics rsa,  pcc: 38.44%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.24%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[207191  28140]
+ [ 19557  12401]]
+The best cut-off value is: 0.78
+Training Metrics ppi, Epoch:26  ValAcc: 0.8215527013831471 specScore: 88.04% presScore: 30.59% recallScore: 38.80% F1Score: 34.21% MCC: 24.28% AUC: 74.25% AP: 30.07%
+Training Metrics rsa,  pcc: 38.82%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.25%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[203278  32053]
+ [ 16616  15342]]
+The best cut-off value is: 0.83
+Training Metrics ppi, Epoch:27  ValAcc: 0.8179161880960308 specScore: 86.38% presScore: 32.37% recallScore: 48.01% F1Score: 38.67% MCC: 29.21% AUC: 76.94% AP: 33.88%
+Training Metrics rsa,  pcc: 52.17%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.36%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[218258  17073]
+ [ 22048   9910]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:28  ValAcc: 0.853637822731201 specScore: 92.75% presScore: 36.73% recallScore: 31.01% F1Score: 33.63% MCC: 25.58% AUC: 75.72% AP: 31.89%
+Training Metrics rsa,  pcc: 52.58%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.38%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213093  22238]
+ [ 20011  11947]]
+The best cut-off value is: 0.82
+Training Metrics ppi, Epoch:29  ValAcc: 0.8419351338813045 specScore: 90.55% presScore: 34.95% recallScore: 37.38% F1Score: 36.12% MCC: 27.14% AUC: 76.53% AP: 32.99%
+Training Metrics rsa,  pcc: 50.24%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.24%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[214271  21060]
+ [ 20779  11179]]
+The best cut-off value is: 0.82
+Training Metrics ppi, Epoch:30  ValAcc: 0.8434690540950058 specScore: 91.05% presScore: 34.68% recallScore: 34.98% F1Score: 34.83% MCC: 25.93% AUC: 75.32% AP: 31.27%
+Training Metrics rsa,  pcc: 41.53%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.27%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[206839  28492]
+ [ 18611  13347]]
+The best cut-off value is: 0.85
+Training Metrics ppi, Epoch:31  ValAcc: 0.823775015058607 specScore: 87.89% presScore: 31.90% recallScore: 41.76% F1Score: 36.17% MCC: 26.48% AUC: 76.18% AP: 32.15%
+Training Metrics rsa,  pcc: 48.81%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.16%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[214871  20460]
+ [ 20596  11362]]
+The best cut-off value is: 0.85
+Training Metrics ppi, Epoch:32  ValAcc: 0.8463984675762938 specScore: 91.31% presScore: 35.70% recallScore: 35.55% F1Score: 35.63% MCC: 26.91% AUC: 76.34% AP: 32.81%
+Training Metrics rsa,  pcc: 51.52%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.35%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[218088  17243]
+ [ 21903  10055]]
+The best cut-off value is: 0.83
+Training Metrics ppi, Epoch:33  ValAcc: 0.8535442910108534 specScore: 92.67% presScore: 36.83% recallScore: 31.46% F1Score: 33.94% MCC: 25.86% AUC: 75.42% AP: 31.82%
+Training Metrics rsa,  pcc: 39.20%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.23%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[224035  11296]
+ [ 26865   5093]]
+The best cut-off value is: 0.59
+Training Metrics ppi, Epoch:34  ValAcc: 0.8572294407925504 specScore: 95.20% presScore: 31.08% recallScore: 15.94% F1Score: 21.07% MCC: 15.06% AUC: 67.21% AP: 22.92%
+Training Metrics rsa,  pcc: 36.96%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.26%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[181939  53392]
+ [ 13138  18820]]
+The best cut-off value is: 0.86
+Training Metrics ppi, Epoch:35  ValAcc: 0.7510933858108639 specScore: 77.31% presScore: 26.06% recallScore: 58.89% F1Score: 36.13% MCC: 26.45% AUC: 75.78% AP: 32.17%
+Training Metrics rsa,  pcc: 44.89%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.30%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217310  18021]
+ [ 21969   9989]]
+The best cut-off value is: 0.85
+Training Metrics ppi, Epoch:36  ValAcc: 0.8503866601319171 specScore: 92.34% presScore: 35.66% recallScore: 31.26% F1Score: 33.31% MCC: 25.00% AUC: 75.32% AP: 30.92%
+Training Metrics rsa,  pcc: 41.57%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.30%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[218643  16688]
+ [ 22563   9395]]
+The best cut-off value is: 0.82
+Training Metrics ppi, Epoch:37  ValAcc: 0.8531514577853934 specScore: 92.91% presScore: 36.02% recallScore: 29.40% F1Score: 32.37% MCC: 24.39% AUC: 74.54% AP: 30.71%
+Training Metrics rsa,  pcc: 38.72%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.25%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[200498  34833]
+ [ 16362  15596]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:38  ValAcc: 0.8084657430721055 specScore: 85.20% presScore: 30.93% recallScore: 48.80% F1Score: 37.86% MCC: 28.20% AUC: 76.42% AP: 32.67%
+Training Metrics rsa,  pcc: 51.22%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.37%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[223219  12112]
+ [ 24718   7240]]
+The best cut-off value is: 0.82
+Training Metrics ppi, Epoch:39  ValAcc: 0.8622090695838587 specScore: 94.85% presScore: 37.41% recallScore: 22.65% F1Score: 28.22% MCC: 21.92% AUC: 73.65% AP: 29.27%
+Training Metrics rsa,  pcc: 39.87%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.27%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[203045  32286]
+ [ 17329  14629]]
+The best cut-off value is: 0.87
+Training Metrics ppi, Epoch:40  ValAcc: 0.8143769477980762 specScore: 86.28% presScore: 31.18% recallScore: 45.78% F1Score: 37.10% MCC: 27.34% AUC: 76.19% AP: 31.97%
+Training Metrics rsa,  pcc: 51.32%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.32%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213031  22300]
+ [ 20065  11893]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:41  ValAcc: 0.8415011466988914 specScore: 90.52% presScore: 34.78% recallScore: 37.21% F1Score: 35.96% MCC: 26.94% AUC: 75.76% AP: 32.44%
+Training Metrics rsa,  pcc: 39.56%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.13%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217015  18316]
+ [ 22447   9511]]
+The best cut-off value is: 0.86
+Training Metrics ppi, Epoch:42  ValAcc: 0.8474946593387681 specScore: 92.22% presScore: 34.18% recallScore: 29.76% F1Score: 31.82% MCC: 23.35% AUC: 73.64% AP: 29.57%
+Training Metrics rsa,  pcc: 39.02%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.25%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[208008  27323]
+ [ 18473  13485]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:43  ValAcc: 0.8286648533983815 specScore: 88.39% presScore: 33.04% recallScore: 42.20% F1Score: 37.06% MCC: 27.59% AUC: 76.26% AP: 32.92%
+Training Metrics rsa,  pcc: 41.04%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.26%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[227444   7887]
+ [ 27283   4675]]
+The best cut-off value is: 0.68
+Training Metrics ppi, Epoch:44  ValAcc: 0.8684195758149419 specScore: 96.65% presScore: 37.22% recallScore: 14.63% F1Score: 21.00% MCC: 17.29% AUC: 70.44% AP: 25.98%
+Training Metrics rsa,  pcc: 38.56%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.28%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[189964  45367]
+ [ 15261  16697]]
+The best cut-off value is: 0.87
+Training Metrics ppi, Epoch:45  ValAcc: 0.7731743543505344 specScore: 80.72% presScore: 26.90% recallScore: 52.25% F1Score: 35.52% MCC: 25.33% AUC: 74.83% AP: 31.12%
+Training Metrics rsa,  pcc: 39.00%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.30%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[214811  20520]
+ [ 21434  10524]]
+The best cut-off value is: 0.87
+Training Metrics ppi, Epoch:46  ValAcc: 0.8430388081814066 specScore: 91.28% presScore: 33.90% recallScore: 32.93% F1Score: 33.41% MCC: 24.52% AUC: 74.57% AP: 30.29%
+Training Metrics rsa,  pcc: 39.58%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.30%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213143  22188]
+ [ 20431  11527]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:47  ValAcc: 0.8405508644201595 specScore: 90.57% presScore: 34.19% recallScore: 36.07% F1Score: 35.10% MCC: 26.03% AUC: 75.20% AP: 31.52%
+Training Metrics rsa,  pcc: 39.36%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.08%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[226701   8630]
+ [ 27391   4567]]
+The best cut-off value is: 0.55
+Training Metrics ppi, Epoch:48  ValAcc: 0.8652357560543082 specScore: 96.33% presScore: 34.61% recallScore: 14.29% F1Score: 20.23% MCC: 15.91% AUC: 68.57% AP: 24.40%
+Training Metrics rsa,  pcc: 38.34%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.26%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[187003  48328]
+ [ 13940  18018]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:49  ValAcc: 0.7670386734957293 specScore: 79.46% presScore: 27.16% recallScore: 56.38% F1Score: 36.66% MCC: 26.92% AUC: 75.78% AP: 32.05%
+Training Metrics rsa,  pcc: 46.83%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.25%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217032  18299]
+ [ 21804  10154]]
+The best cut-off value is: 0.86
+Training Metrics ppi, Epoch:50  ValAcc: 0.8499638967559459 specScore: 92.22% presScore: 35.69% recallScore: 31.77% F1Score: 33.62% MCC: 25.24% AUC: 75.21% AP: 31.14%
+Training Metrics rsa,  pcc: 39.69%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.30%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[207497  27834]
+ [ 18612  13346]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:51  ValAcc: 0.8262330286693429 specScore: 88.17% presScore: 32.41% recallScore: 41.76% F1Score: 36.50% MCC: 26.90% AUC: 76.01% AP: 32.25%
+Training Metrics rsa,  pcc: 52.74%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.38%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[211285  24046]
+ [ 19229  12729]]
+The best cut-off value is: 0.90
+Training Metrics ppi, Epoch:52  ValAcc: 0.8380965920782374 specScore: 89.78% presScore: 34.61% recallScore: 39.83% F1Score: 37.04% MCC: 27.89% AUC: 76.39% AP: 33.16%
+Training Metrics rsa,  pcc: 42.13%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.12%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[227713   7618]
+ [ 27213   4745]]
+The best cut-off value is: 0.71
+Training Metrics ppi, Epoch:53  ValAcc: 0.8696878659428559 specScore: 96.76% presScore: 38.38% recallScore: 14.85% F1Score: 21.41% MCC: 17.94% AUC: 72.05% AP: 27.17%
+Training Metrics rsa,  pcc: 38.14%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.32%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[190393  44938]
+ [ 14352  17606]]
+The best cut-off value is: 0.90
+Training Metrics ppi, Epoch:54  ValAcc: 0.7781801720235401 specScore: 80.90% presScore: 28.15% recallScore: 55.09% F1Score: 37.26% MCC: 27.59% AUC: 76.17% AP: 32.78%
+Training Metrics rsa,  pcc: 43.94%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.17%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[220999  14332]
+ [ 23052   8906]]
+The best cut-off value is: 0.87
+Training Metrics ppi, Epoch:55  ValAcc: 0.860136406660955 specScore: 93.91% presScore: 38.33% recallScore: 27.87% F1Score: 32.27% MCC: 25.08% AUC: 76.27% AP: 32.52%
+Training Metrics rsa,  pcc: 52.53%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.27%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[216408  18923]
+ [ 21056  10902]]
+The best cut-off value is: 0.86
+Training Metrics ppi, Epoch:56  ValAcc: 0.8504278140888701 specScore: 91.96% presScore: 36.55% recallScore: 34.11% F1Score: 35.29% MCC: 26.87% AUC: 76.03% AP: 32.67%
+Training Metrics rsa,  pcc: 53.37%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.41%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[211141  24190]
+ [ 19405  12553]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:57  ValAcc: 0.8368993860577877 specScore: 89.72% presScore: 34.16% recallScore: 39.28% F1Score: 36.54% MCC: 27.33% AUC: 76.18% AP: 32.50%
+Training Metrics rsa,  pcc: 52.25%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.28%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[209355  25976]
+ [ 18516  13442]]
+The best cut-off value is: 0.91
+Training Metrics ppi, Epoch:58  ValAcc: 0.8335434679317144 specScore: 88.96% presScore: 34.10% recallScore: 42.06% F1Score: 37.67% MCC: 28.39% AUC: 76.49% AP: 33.31%
+Training Metrics rsa,  pcc: 40.28%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 87.73%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[218670  16661]
+ [ 21787  10171]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:59  ValAcc: 0.8561556966429595 specScore: 92.92% presScore: 37.91% recallScore: 31.83% F1Score: 34.60% MCC: 26.72% AUC: 76.23% AP: 32.94%
+Training Metrics rsa,  pcc: 47.57%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.33%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[216245  19086]
+ [ 21787  10171]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:60  ValAcc: 0.8470831197692386 specScore: 91.89% presScore: 34.76% recallScore: 31.83% F1Score: 33.23% MCC: 24.65% AUC: 75.00% AP: 30.61%
+Training Metrics rsa,  pcc: 48.84%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.35%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213626  21705]
+ [ 20656  11302]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:61  ValAcc: 0.8415161117741471 specScore: 90.78% presScore: 34.24% recallScore: 35.37% F1Score: 34.79% MCC: 25.78% AUC: 75.74% AP: 31.55%
+Training Metrics rsa,  pcc: 53.51%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.42%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213844  21487]
+ [ 20699  11259]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:62  ValAcc: 0.8421708338165805 specScore: 90.87% presScore: 34.38% recallScore: 35.23% F1Score: 34.80% MCC: 25.83% AUC: 75.52% AP: 31.32%
+Training Metrics rsa,  pcc: 52.46%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.45%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213980  21351]
+ [ 20496  11462]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:63  ValAcc: 0.8434391239444945 specScore: 90.93% presScore: 34.93% recallScore: 35.87% F1Score: 35.39% MCC: 26.49% AUC: 75.74% AP: 31.93%
+Training Metrics rsa,  pcc: 52.18%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.25%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217445  17886]
+ [ 21991   9967]]
+The best cut-off value is: 0.87
+Training Metrics ppi, Epoch:64  ValAcc: 0.8508094235078885 specScore: 92.40% presScore: 35.78% recallScore: 31.19% F1Score: 33.33% MCC: 25.05% AUC: 75.47% AP: 31.23%
+Training Metrics rsa,  pcc: 53.34%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.40%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217276  18055]
+ [ 21799  10159]]
+The best cut-off value is: 0.85
+Training Metrics ppi, Epoch:65  ValAcc: 0.8508954726906083 specScore: 92.33% presScore: 36.01% recallScore: 31.79% F1Score: 33.77% MCC: 25.46% AUC: 75.85% AP: 31.86%
+Training Metrics rsa,  pcc: 51.75%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.16%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[208502  26829]
+ [ 18970  12988]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:66  ValAcc: 0.8286536295919398 specScore: 88.60% presScore: 32.62% recallScore: 40.64% F1Score: 36.19% MCC: 26.64% AUC: 75.82% AP: 31.35%
+Training Metrics rsa,  pcc: 51.56%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.19%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213507  21824]
+ [ 20359  11599]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:67  ValAcc: 0.8421820576230222 specScore: 90.73% presScore: 34.70% recallScore: 36.29% F1Score: 35.48% MCC: 26.50% AUC: 75.86% AP: 31.70%
+Training Metrics rsa,  pcc: 52.82%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.29%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217379  17952]
+ [ 21866  10092]]
+The best cut-off value is: 0.87
+Training Metrics ppi, Epoch:68  ValAcc: 0.8510301583679089 specScore: 92.37% presScore: 35.99% recallScore: 31.58% F1Score: 33.64% MCC: 25.36% AUC: 76.17% AP: 31.93%
+Training Metrics rsa,  pcc: 51.30%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.23%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[219179  16152]
+ [ 22221   9737]]
+The best cut-off value is: 0.82
+Training Metrics ppi, Epoch:69  ValAcc: 0.8564362918040024 specScore: 93.14% presScore: 37.61% recallScore: 30.47% F1Score: 33.66% MCC: 25.89% AUC: 75.87% AP: 31.95%
+Training Metrics rsa,  pcc: 53.35%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.45%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[202802  32529]
+ [ 16950  15008]]
+The best cut-off value is: 0.90
+Training Metrics ppi, Epoch:70  ValAcc: 0.8148857603567674 specScore: 86.18% presScore: 31.57% recallScore: 46.96% F1Score: 37.76% MCC: 28.12% AUC: 76.36% AP: 32.68%
+Training Metrics rsa,  pcc: 52.33%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.37%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[218311  17020]
+ [ 21896  10062]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:71  ValAcc: 0.8544047828380517 specScore: 92.77% presScore: 37.15% recallScore: 31.49% F1Score: 34.09% MCC: 26.08% AUC: 75.84% AP: 32.05%
+Training Metrics rsa,  pcc: 52.95%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.41%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[213699  21632]
+ [ 20020  11938]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:72  ValAcc: 0.8441686713632062 specScore: 90.81% presScore: 35.56% recallScore: 37.36% F1Score: 36.44% MCC: 27.57% AUC: 76.28% AP: 32.81%
+Training Metrics rsa,  pcc: 51.52%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.42%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[224142  11189]
+ [ 24882   7076]]
+The best cut-off value is: 0.71
+Training Metrics ppi, Epoch:73  ValAcc: 0.865048692613613 specScore: 95.25% presScore: 38.74% recallScore: 22.14% F1Score: 28.18% MCC: 22.36% AUC: 74.64% AP: 29.91%
+Training Metrics rsa,  pcc: 50.18%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.39%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[198026  37305]
+ [ 16033  15925]]
+The best cut-off value is: 0.88
+Training Metrics ppi, Epoch:74  ValAcc: 0.8004482040039059 specScore: 84.15% presScore: 29.92% recallScore: 49.83% F1Score: 37.39% MCC: 27.61% AUC: 75.87% AP: 31.54%
+Training Metrics rsa,  pcc: 49.71%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.24%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[221498  13833]
+ [ 23566   8392]]
+The best cut-off value is: 0.78
+Training Metrics ppi, Epoch:75  ValAcc: 0.8600802876287464 specScore: 94.12% presScore: 37.76% recallScore: 26.26% F1Score: 30.98% MCC: 23.95% AUC: 74.38% AP: 30.44%
+Training Metrics rsa,  pcc: 38.31%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.09%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[200548  34783]
+ [ 16484  15474]]
+The best cut-off value is: 0.90
+Training Metrics ppi, Epoch:76  ValAcc: 0.8081963717175042 specScore: 85.22% presScore: 30.79% recallScore: 48.42% F1Score: 37.64% MCC: 27.93% AUC: 75.97% AP: 32.25%
+Training Metrics rsa,  pcc: 52.87%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.43%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[216511  18820]
+ [ 21342  10616]]
+The best cut-off value is: 0.89
+Training Metrics ppi, Epoch:77  ValAcc: 0.8497431618959254 specScore: 92.00% presScore: 36.06% recallScore: 33.22% F1Score: 34.58% MCC: 26.14% AUC: 75.97% AP: 31.73%
+Training Metrics rsa,  pcc: 52.17%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.29%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217786  17545]
+ [ 21867  10091]]
+The best cut-off value is: 0.87
+Training Metrics ppi, Epoch:78  ValAcc: 0.8525491135063545 specScore: 92.54% presScore: 36.51% recallScore: 31.58% F1Score: 33.87% MCC: 25.70% AUC: 76.03% AP: 31.82%
+Training Metrics rsa,  pcc: 52.21%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.33%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[215487  19844]
+ [ 20884  11074]]
+The best cut-off value is: 0.86
+Training Metrics ppi, Epoch:79  ValAcc: 0.8476256037472548 specScore: 91.57% presScore: 35.82% recallScore: 34.65% F1Score: 35.22% MCC: 26.60% AUC: 75.90% AP: 31.65%
+Training Metrics rsa,  pcc: 51.85%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.43%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[219437  15894]
+ [ 22704   9254]]
+The best cut-off value is: 0.78
+Training Metrics ppi, Epoch:80  ValAcc: 0.8555945063208736 specScore: 93.25% presScore: 36.80% recallScore: 28.96% F1Score: 32.41% MCC: 24.67% AUC: 75.00% AP: 30.55%
+Training Metrics rsa,  pcc: 51.61%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.34%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[208377  26954]
+ [ 18591  13367]]
+The best cut-off value is: 0.86
+Training Metrics ppi, Epoch:81  ValAcc: 0.8296039118706718 specScore: 88.55% presScore: 33.15% recallScore: 41.83% F1Score: 36.99% MCC: 27.53% AUC: 75.95% AP: 31.91%
+Training Metrics rsa,  pcc: 52.32%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.42%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[214855  20476]
+ [ 20878  11080]]
+The best cut-off value is: 0.86
+Training Metrics ppi, Epoch:82  ValAcc: 0.8452835694697499 specScore: 91.30% presScore: 35.11% recallScore: 34.67% F1Score: 34.89% MCC: 26.11% AUC: 75.56% AP: 31.47%
+Training Metrics rsa,  pcc: 45.83%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.30%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[214364  20967]
+ [ 20280  11678]]
+The best cut-off value is: 0.86
+Training Metrics ppi, Epoch:83  ValAcc: 0.8456838852328379 specScore: 91.09% presScore: 35.77% recallScore: 36.54% F1Score: 36.15% MCC: 27.38% AUC: 76.05% AP: 32.11%
+Training Metrics rsa,  pcc: 53.10%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.42%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[217556  17775]
+ [ 22047   9911]]
+The best cut-off value is: 0.82
+Training Metrics ppi, Epoch:84  ValAcc: 0.8510151932926533 specScore: 92.45% presScore: 35.80% recallScore: 31.01% F1Score: 33.23% MCC: 24.98% AUC: 75.14% AP: 30.54%
+Training Metrics rsa,  pcc: 46.80%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.32%, pvalue: 0.00%
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[215532  19799]
+ [ 21007  10951]]
+The best cut-off value is: 0.81
+Training Metrics ppi, Epoch:85  ValAcc: 0.8473337847797702 specScore: 91.59% presScore: 35.61% recallScore: 34.27% F1Score: 34.93% MCC: 26.29% AUC: 75.53% AP: 31.55%
+Training Metrics rsa,  pcc: 52.41%, pvalue: 0.00%
+Training Metrics ss3,  pcc: 88.32%, pvalue: 0.00%
+Restoring model weights from the best epoch: 05 with the best VAL_AUC: 78.72%
+You are saving your model as an HDF5 file via `model.save()`. This file format is considered legacy. We recommend using instead the native Keras format, e.g. `model.save('my_model.keras')`.
+Training time: 7:04:04.679640
+:) performTesting
+:) testModel
+%%%%%%% loading the saved model:  ../models/mtnet-ppi/mtnet-ppi-model.hdf5
+:) doTesting
+## Testing ../data/prepared_ZK448_win_p_benchmark.csv at: 03-06-2024#06:23:16 ##
+testDataset is None
+Shape featuresTable: (336, 2) | Shape labelvec: (336, 5)
+Shape inputData: (336, 1170, 1025)
+Shape labelData: (336, 1170, 5)
+truelabels (336, 1170, 5)
+Shape featuresTable: (336, 1170, 1025) | Shape labelvec: (336, 1170, 5)
+doKerasModelTesting
+:) doKerasModelTesting
+Testing time: 0:00:07.775593
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[60180  8951]
+ [ 7660  8150]]
+The best cut-off value is: 0.81
+Testing Metrics ppi,  ValAcc: 0.8044407294474989 specScore: 87.05% presScore: 47.66% recallScore: 51.55% F1Score: 49.53% MCC: 37.47% AUC: 79.34% AP: 48.71%
+Testing Metrics rsa,  pcc: 49.56%, pvalue: 0.00%
+Testing Metrics ss3,  pcc: 90.74%, pvalue: 0.00%
+:) plotMetrics
+
+## Generating metrics-data per protein for @@: ../models/mtnet-ppi/metrics-per-prot-mtnet-ppi.csv @@
+## Prediction plot generated for: ../models/mtnet-ppi/PPLOTS_preds-ZK448_P.html
+:) doTesting
+## Testing ../data/prepared_biolip_win_p_testing.csv at: 03-06-2024#06:25:05 ##
+testDataset is None
+Shape featuresTable: (228, 2) | Shape labelvec: (228, 5)
+Shape inputData: (228, 1170, 1025)
+Shape labelData: (228, 1170, 5)
+truelabels (228, 1170, 5)
+Shape featuresTable: (228, 1170, 1025) | Shape labelvec: (228, 1170, 5)
+doKerasModelTesting
+:) doKerasModelTesting
+Testing time: 0:00:04.874988
+confusion_matrix: [actual_neg=[TN, FP]; actual_pos=[FN, TP]]
+[[52872  4433]
+ [ 5090  2755]]
+The best cut-off value is: 0.81
+Testing Metrics ppi,  ValAcc: 0.8538296239447429 specScore: 92.26% presScore: 38.33% recallScore: 35.12% F1Score: 36.65% MCC: 28.44% AUC: 79.02% AP: 34.89%
+Testing Metrics rsa,  pcc: 43.61%, pvalue: 0.00%
+Testing Metrics ss3,  pcc: 87.80%, pvalue: 0.00%
+:) plotMetrics
+
+## Generating metrics-data per protein for @@: ../models/mtnet-ppi/metrics-per-prot-mtnet-ppi.csv @@
+## Prediction plot generated for: ../models/mtnet-ppi/PPLOTS_preds-BLTEST_P.html

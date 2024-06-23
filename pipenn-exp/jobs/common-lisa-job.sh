@@ -22,8 +22,8 @@ cat << EOF  | sbatch
 ###########################################
 
 # change partion if you want
-#SBATCH -p defq
-##SBATCH -p binf
+##SBATCH -p defq
+#SBATCH -p binf
 #SBATCH --cpus-per-task=32
 ##SBATCH --gres=gpu:2
 

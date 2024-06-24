@@ -127,8 +127,6 @@ class PPITrainTestCls(object):
                 'ppi': 0.6,   # Weight for the ppi loss
                 'rsa': 0.2,   # Weight for the rsa loss
                 'SS3': 0.2, # Weight for the SS3 loss
-                # 'helix': 0.1, # Weight for the helix loss
-                # 'coil': 0.1   # Weight for the coil loss
             }
         
 ```

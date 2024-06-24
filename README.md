@@ -60,7 +60,6 @@ This research provides valuable insights into combining multi-task learning with
         keyFeatures = keyFeatureDict.get(cls.EXPR_DATASET_LABEL)
         cls.SEQ_COLUMN_NAME = keyFeatures[0]
 
-        ## kiki
         cls.LABEL_COLUMNS = keyFeatures[1]
         logger.info('The chosen labels are: {}'.format(keyFeatures[1]))
         cls.FEATURE_COLUMNS = featureColumns

@@ -29,6 +29,23 @@ This research provides valuable insights into combining multi-task learning with
 
 ## Running existent multi-task algorithms 
 
+- **Step 1:** Go to ~/pipenn-exp/mtnet-ppi and choose the architecture for your MODEL. Copy mtnet-ppi.py to both target locations
+```bash
+cp -r mtnet-ppi ~/pipenn-exp/jout
+cp -r mtnet-ppi ~/pipenn-exp/mtnet-ppi
+```
+
+- **Step 2:** Choose the belonging utils folder and change the name to 'utils'
+```bash
+mv source_folder_name utils
+```
+
+- **Step 3:** Go to the ~/pipenn-exp/jout directory and run:
+```bash
+python mtnet-ppi.py
+```
+
+## Running own multi-task algorithm 
 - **Step 1:** Go to ~/pipenn-exp/mtnet-ppi and choose the Model architecture you want to use
 ```bash
 
@@ -66,25 +83,6 @@ This research provides valuable insights into combining multi-task learning with
         cls.setCondParams()
         return
 ```
-
-- **Step 2:** Choose the belonging utils folder and change the name to 'utils'
-```bash
-mv source_folder_name utils
-```
-
-- **Step 3:** Go to the ~/pipenn-exp/jout directory and run:
-```bash
-python mtnet-ppi.py
-```
-
-## Running own multi-task algorithm 
-- **Step 1:** ~/pipenn-exp/utils/PPIDataset.py
-```bash
-DatasetParams.MULTI_TASK_MODEL = True #False
-
-# To use embeddings as input
-DatasetParams.ONE_HOT_ENCODING = False #True
-```
 - **Step 2:** ~/pipenn-exp/utils/PPIDataset.py
 ```bash
 DatasetParams.MULTI_TASK_MODEL = True #False
@@ -110,15 +108,6 @@ DatasetParams.OUTPUT_COLUMNS = ['ppi', 'rsa', 'ss3']
 # If one label has 3 columns (like in SS3) count this into your total dimension. For [ppi, rsa, SS3] it is 5
 Algparams.LABEL_DIM = 5 
 ```
-
-
-
-
-
-
-
-
-
 
 
 ## Keywords
